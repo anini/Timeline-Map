@@ -114,9 +114,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                        <h1>Population Pyramid</h1>
+                        <h1>Syria Population Pyramid</h1>
                 </div>
-                
+
                         <p>This data visualisation present the impact of 5 years of war on the syrian population. It shows:
                         <ul>
                             <li> Population extrapolation based on 2004 census <small>(source: <a href="http://www.cbssyr.sy/index-EN.htm">Syrian Central Bureau of Statistics</a>)</small></li>
@@ -138,30 +138,53 @@
 
                     <div class="panel panel-default">
                         <div class="panel-body">
-                           <table>
-                                <tr><td style="width:70%;">Total Population:</td>                  <td style="text-align:right;"><span id="TotalPopulation">XXXXXX</span></td></tr>
-                                <tr><td style="width:70%;">Male:Female %:</td>                  <td style="text-align:right;">M<span id="MalePercent">XX.X</span>%&nbsp;&nbsp;F<span id="FemalePercent">XX.X</span>%</td></tr>
-                                <tr><td>Birth Rate (%):</td>                    <td style="text-align:right;"><input id="BirthRate" type="text" onchange="javascript:uiNumbersChanged=true;" style="text-align: right; width:100px;" value="3.4" /></td></tr>
-                                <tr><td>Births during year:</td>                  <td style="text-align:right;"><span id="NumberBirths">XXXXXX</span></td></tr>
-                                <tr><td>Death Rate (%):</td>                    <td style="text-align:right;"><input id="DeathRate" type="text" onchange="javascript:uiNumbersChanged=true;" style="text-align: right; width:100px;" value="0.8" /></td></tr>
-                                <tr><td>Deaths during year:</td>                  <td style="text-align:right;"><span id="NumberDeaths">XXXXXX</span></td></tr>
-                                <tr><td>Population increases:</td>        <td style="text-align:right;"><input id="PopIncrease" type="text" onchange="javascript:uiNumbersChanged=true;" style="text-align: right; width:100px;" value="5000" /></td></tr>
-                                <tr><td>Population decreases:</td><td style="text-align:right;"><input id="PopDecrease" type="text" onchange="javascript:uiNumbersChanged=true;" style="text-align: right; width:100px;" value="40000" /></td></tr>
-                            </table>
-                            </div>
-                        </div>
-                    <br /><br />
-                    <a href="javascript:UseDefaultValues();">Use default settings...</a>
+                        
+                            <div class="btn-group btn-group-justified">
+                              <a href="#" class="btn btn-default">Total Population</a>
+                              <a href="#" class="btn btn-primary"><span id="TotalPopulation"></span></a>
+                            </div> 
+                            <p>In %</p>
+                            <div class="btn-group btn-group-justified">
+                              <a href="#" class="btn btn-default">Male </a>
+                              <a href="#" class="btn btn-info"><span id="MalePercent"> XX.X</span> %</a>
+                              <a href="#" class="btn btn-default">Female </a>
+                              <a href="#" class="btn btn-info"><span id="FemalePercent">XX.X</span> %</a>
+                            </div> 
+                           <p>During the year</p>
+                            <div class="btn-group btn-group-justified">
+                              <a href="#" class="btn btn-default">Births </a>
+                              <a href="#" class="btn btn-success"><span id="NumberBirths"> XX.X</span></a>
+                              <a href="#" class="btn btn-default">Deaths</a>
+                              <a href="#" class="btn btn-success"><span id="NumberDeaths"> XX.X</span></a>
+                            </div> 
+                        
+                         </div>
+                    </div>
 
+                    <form class="form-horizontal">
+                      <fieldset>
+                        <legend>Simulation <small><a href="javascript:UseDefaultValues();">or use default settings...</a></small></legend>
+                        
+                        <div class="form-group">
+                          <label for="BirthRate" class="control-label">Birth Rate (%)</label><input type="text" class="form-control" id="BirthRate"  onchange="javascript:uiNumbersChanged=true;" value="3.4">
+                        </div>
+                        <div class="form-group">
+                          <label for="DeathRate" class="control-label">Death Rate (%)</label><input type="text" class="form-control" id="DeathRate"  onchange="javascript:uiNumbersChanged=true;" value="0.8">
+                        </div>
+                        <div class="form-group">
+                          <label for="PopIncrease" class="control-label">Population increases</label><input type="text" class="form-control" id="PopIncrease"  onchange="javascript:uiNumbersChanged=true;" value="15000">
+                        </div>
+                        <div class="form-group">
+                          <label for="PopDecrease" class="control-label">Population decreases</label><input type="text" class="form-control" id="PopDecrease"  onchange="javascript:uiNumbersChanged=true;" value="40000">
+                        </div>
+                      </fieldset>
+                    </form>
                 </div>
 
                 <div class="col-lg-8">
                     <div id="PopPyramid" ></div>
                 </div>
             </div>
-
-
-
         </div>
 
         <script type="text/javascript">
@@ -464,9 +487,7 @@
                     .enter().append("text")
                     .attr("class", "age")
                     .attr("x", width - 5)
-                    .attr("y", function (age) {
-                        return y(year - age);
-                    })
+                    .attr("y", function (age) { return y(year - age); })
                     .attr("dy", ".71em")
                     .text(function (age) { return age; });
 
@@ -574,15 +595,15 @@
                         Update();
                     }
                 }
-                //==
+
                 uiUpdateFunction = function () {
                     IncrementYear();
                     Update();
                 };
-                //==
+
                 uiResetFunction = function () {
 
-                    //                alert(uiNumbersChanged);
+                    //  alert(uiNumbersChanged);
 
                     if (uiNumbersChanged == true) {
                         uiNumbersChanged = false;
@@ -607,15 +628,10 @@
             });
 
 
-            //==
             function NumberWithCommas(x) {
                 return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             }
 
-
-
-
-            //==
             function BuildFutureData(startYear, data) {
 
                 var newData = [];
@@ -626,21 +642,21 @@
                 });
 
 
-                //__ Setup the death info ... SORRY - this one is hard coded for now!!!
+                // Setup the death info ... SORRY - this one is hard coded for now!!!
                 var tempSummaryDeath = {};
                 tempSummaryDeath.year = 2014;
                 tempSummaryDeath.people = Math.round(1500460 * 0.008);
                 summaryDeath.push(tempSummaryDeath);
 
 
-                //__ model the data forwards for 20 years from the startYear ...
+                // model the data forwards for 20 years from the startYear ...
                 for (var i = 1; i <= numYearsToProject; i++) {
                     // calculate the current year
                     var currentYear = +startYear + i;
                     // clear the temporary data ...
                     tempData = [];
 
-                    //__ create the new birth information for Girls and Boys ...
+                    // create the new birth information for Girls and Boys ...
                     {
                         var tempStartRow = {};
                         tempStartRow.year = "" + currentYear;
@@ -657,7 +673,7 @@
                         tempData.push(tempStartRow2);
                     }
 
-                    //__ shuffle the data along and update the year (ignoring the last two entries which will be the two 91s ...)
+                    // shuffle the data along and update the year (ignoring the last two entries which will be the two 91s ...)
                     for (var j = 0; j < data.length; j++) {
 
                         var tempRow = {};
@@ -678,10 +694,10 @@
                     tempData = ApplyPopulationIncrease(tempData);
                     tempData = ApplyPopulationDecrease(tempData);
 
-                    //__ clear the data and reassign the tempData to Data ...
+                    // clear the data and reassign the tempData to Data ...
                     data = [];
 
-                    //__ now insert the updated data into the new array
+                    // now insert the updated data into the new array
                     tempData.forEach(function (val) {
                         newData.push(val);
                         data.push(val);
@@ -692,8 +708,6 @@
                 return newData;
             }
 
-
-            //==
             function ApplyBirths(data) {
 
                 var birthRate = document.getElementById("BirthRate").value * 1; // for Afghanistan ...
@@ -720,7 +734,7 @@
                 newM = Math.round(totalM * birthRate / 100);
                 newF = Math.round(totalF * birthRate / 100);
 
-                //            alert(totalM + "   " + newM);
+                //  alert(totalM + "   " + newM);
 
                 data.forEach(function (val) {
                     if (val.age == 0) {
@@ -735,8 +749,6 @@
                 return data;
             }
 
-
-            //==
             function ApplyDeaths(data) {
 
                 var deathRate = document.getElementById("DeathRate").value * 1; // for Afghanistan ... still might be a bit low...
@@ -791,8 +803,7 @@
                 return data;
             }
 
-
-            //== E.g. due to increases in individually recognised refugees
+            // E.g. due to increases in individually recognised refugees
             function ApplyPopulationIncrease(data) {
 
                 var popIncreaseTotal = document.getElementById("PopIncrease").value * 1; // E.g. New Recognitions ...
@@ -815,15 +826,13 @@
                         popIncreasePercent = popIncreaseProfileFemale[val.age];
                         popIncreaseNum = popIncreaseTotalF * popIncreasePercent * -1;
                     }
-
                     val.people = Math.round(val.people + popIncreaseNum);
-
                 });
 
                 return data;
             }
 
-            //== E.g. due to voluntary repatriation
+            // E.g. due to voluntary repatriation
             function ApplyPopulationDecrease(data) {
 
                 var popDecreaseTotal = document.getElementById("PopDecrease").value * 1; // Voluntary Repatriation Action ...
@@ -857,12 +866,7 @@
                 return data;
             }
 
-
-            //==
             function SetTotal(data, year) {
-
-
-
                 var totalM, totalF, total, numBirths, numDeaths, percM, percF;
                 totalM = totalF = total = numBirths = numDeaths = percM = percF = 0;
 
@@ -905,7 +909,6 @@
                     }
                 });
             }
-
 
             // The % risk of dying by age group 0,1,2,3 ...
             var deathRiskWeightings = [
@@ -1378,53 +1381,39 @@
                 0.00054690
                 ];
 
-
-            //==
             function DoPlayPause() {
-
                 if (uiIsPlaying) {
                     window.clearInterval(uiIntervalID);
                     // update the image src ....
                     document.getElementById("IconPlay").src = "img/icon_play.png";
-
                 } else {
                     // reset the function if required ...
                     if (uiNumbersChanged == true) {
                         uiResetFunction();
                     }
-
                     uiStartFunction();
-
                     // set a timeout for the update function - use interval or time?
                     uiIntervalID = window.setInterval(uiUpdateFunction, 1000);
                     // update the image src ....
                     document.getElementById("IconPlay").src = "img/icon_pause.png";
-
                 }
-
                 uiIsPlaying = !uiIsPlaying;
             }
 
-            //==
             function DoReset() {
                 window.clearInterval(uiIntervalID);
                 uiIsPlaying = false;
                 //            uiIsLoop = false;
                 document.getElementById("IconPlay").src = "img/icon_play.png";
-
                 uiResetFunction();
             }
 
-            //==
             function DoLoop() {
                 uiIsLoop = !uiIsLoop;
                 // all we need to do is to toggle the looping action ...
                 document.getElementById("IconLoop").src = (uiIsLoop) ? "img/icon_loop.png" : "img/icon_loop_grey.png";
-
             }
 
-
-            //==
             function UseDefaultValues() {
                 document.getElementById("BirthRate").value = 3.5;
                 document.getElementById("DeathRate").value = 0.8;
@@ -1432,7 +1421,6 @@
                 document.getElementById("PopIncrease").value = 5000;
                 uiNumbersChanged = true;
             }
-
         </script>
 
     </form>
