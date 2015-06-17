@@ -338,21 +338,6 @@ function transitionMap(){
             d3.select("#"+element.Region.replace(/\s/g, ''))
                         .attr("fill",convertCasesToColor(element.Cases));
             });
-    /*        
-    var data = medical_centres[currentWeek].medical_centres;
-    data.forEach(function(element){
-               d3.select("#"+element.id.split(' ').join('_'))
-                        .attr("opacity",convertMedicalCentresToOpacity(element.open))
-                        .attr('cx',function(d){
-                                    var point = projection([ d.geometry.coordinates[0], d.geometry.coordinates[1] ]);
-                                    return point[0];
-                                })
-                        .attr('cy',function(d){
-                                    var point = projection([ d.geometry.coordinates[0], d.geometry.coordinates[1] ]);
-                                    return point[1];
-                                });  
-            });             
-    */
 }
 
 function convertCasesToColor(cases){

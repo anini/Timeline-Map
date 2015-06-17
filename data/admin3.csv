@@ -1,0 +1,273 @@
+NAME_EN,PCODE,ADMIN2_COD,ADMIN2_EN,ADMIN1_COD,ADMIN1_EN,AREA_SQKM
+Ariha,SY070500,SY0705,Ariha,SY07,Idleb,274
+Ehsem,SY070501,SY0705,Ariha,SY07,Idleb,204
+Mhambal,SY070502,SY0705,Ariha,SY07,Idleb,124
+Jisr-Ash-Shugur,SY070400,SY0704,Jisr-Ash-Shugur,SY07,Idleb,259
+Badama,SY070401,SY0704,Jisr-Ash-Shugur,SY07,Idleb,113
+Darkosh,SY070402,SY0704,Jisr-Ash-Shugur,SY07,Idleb,118
+Janudiyeh,SY070403,SY0704,Jisr-Ash-Shugur,SY07,Idleb,119
+Harim,SY070300,SY0703,Harim,SY07,Idleb,45
+Dana,SY070301,SY0703,Harim,SY07,Idleb,214
+Salqin,SY070302,SY0703,Harim,SY07,Idleb,131
+Kafr Takharim,SY070303,SY0703,Harim,SY07,Idleb,92
+Qourqeena,SY070304,SY0703,Harim,SY07,Idleb,122
+Armanaz,SY070305,SY0703,Harim,SY07,Idleb,130
+Abul Thohur,SY070001,SY0700,Idleb,SY07,Idleb,328
+Bennsh,SY070002,SY0700,Idleb,SY07,Idleb,100
+Saraqab,SY070003,SY0700,Idleb,SY07,Idleb,377
+Teftnaz,SY070004,SY0700,Idleb,SY07,Idleb,98
+Maaret Tamsrin,SY070005,SY0700,Idleb,SY07,Idleb,235
+Sarmin,SY070006,SY0700,Idleb,SY07,Idleb,44
+Idleb,SY070000,SY0700,Idleb,SY07,Idleb,252
+Ma'arrat An Nu'man,SY070200,SY0702,Al Ma'ra,SY07,Idleb,409
+Khan Shaykun,SY070201,SY0702,Al Ma'ra,SY07,Idleb,203
+Sanjar,SY070202,SY0702,Al Ma'ra,SY07,Idleb,590
+Kafr Nobol,SY070203,SY0702,Al Ma'ra,SY07,Idleb,273
+Tamanaah,SY070204,SY0702,Al Ma'ra,SY07,Idleb,369
+Heish,SY070205,SY0702,Al Ma'ra,SY07,Idleb,183
+Quamishli,SY080200,SY0802,Quamishli,SY08,Al-Hasakeh,637
+Tal Hmis,SY080201,SY0802,Quamishli,SY08,Al-Hasakeh,1499
+Amuda,SY080202,SY0802,Quamishli,SY08,Al-Hasakeh,1034
+Qahtaniyyeh,SY080203,SY0802,Quamishli,SY08,Al-Hasakeh,873
+Al-Malikeyyeh,SY080300,SY0803,Al-Malikeyyeh,SY08,Al-Hasakeh,1265
+Jawadiyah,SY080301,SY0803,Al-Malikeyyeh,SY08,Al-Hasakeh,383
+Ya'robiyah,SY080302,SY0803,Al-Malikeyyeh,SY08,Al-Hasakeh,1005
+Ras Al Ain,SY080400,SY0804,Ras Al Ain,SY08,Al-Hasakeh,2830
+Darbasiyah,SY080401,SY0804,Ras Al Ain,SY08,Al-Hasakeh,993
+Al-Hasakeh,SY080000,SY0800,Al-Hasakeh,SY08,Al-Hasakeh,2508
+Tal Tamer,SY080001,SY0800,Al-Hasakeh,SY08,Al-Hasakeh,1111
+Shadadah,SY080002,SY0800,Al-Hasakeh,SY08,Al-Hasakeh,1934
+Markada,SY080003,SY0800,Al-Hasakeh,SY08,Al-Hasakeh,3383
+Be'r Al-Hulo Al-Wardeyyeh,SY080004,SY0800,Al-Hasakeh,SY08,Al-Hasakeh,915
+Areesheh,SY080005,SY0800,Al-Hasakeh,SY08,Al-Hasakeh,1518
+Hole,SY080006,SY0800,Al-Hasakeh,SY08,Al-Hasakeh,1272
+Al-Thawrah,SY110300,SY1103,Ath-Thawrah,SY11,Ar-Raqqa,50
+Mansura,SY110301,SY1103,Ath-Thawrah,SY11,Ar-Raqqa,3909
+Jurneyyeh,SY110302,SY1103,Ath-Thawrah,SY11,Ar-Raqqa,1500
+Tell Abiad,SY110200,SY1102,Tell Abiad,SY11,Ar-Raqqa,511
+Suluk,SY110201,SY1102,Tell Abiad,SY11,Ar-Raqqa,3124
+Ein Issa,SY110202,SY1102,Tell Abiad,SY11,Ar-Raqqa,1194
+Ar-Raqqa,SY110100,SY1101,Ar-Raqqa,SY11,Ar-Raqqa,2889
+Sabka,SY110101,SY1101,Ar-Raqqa,SY11,Ar-Raqqa,2500
+Karama,SY110102,SY1101,Ar-Raqqa,SY11,Ar-Raqqa,1827
+Maadan,SY110103,SY1101,Ar-Raqqa,SY11,Ar-Raqqa,104
+Shaqa,SY130301,SY1303,Shahba,SY13,As-Sweida,731
+Ariqa,SY130302,SY1303,Shahba,SY13,As-Sweida,204
+Little Sura,SY130303,SY1303,Shahba,SY13,As-Sweida,573
+Shahba,SY130300,SY1303,Shahba,SY13,As-Sweida,263
+Salkhad,SY130200,SY1302,Salkhad,SY13,As-Sweida,446
+Qarayya,SY130201,SY1302,Salkhad,SY13,As-Sweida,130
+Gharyeh,SY130202,SY1302,Salkhad,SY13,As-Sweida,86
+Thibeen,SY130203,SY1302,Salkhad,SY13,As-Sweida,144
+Milh,SY130204,SY1302,Salkhad,SY13,As-Sweida,972
+As-Sweida,SY130000,SY1300,As-Sweida,SY13,As-Sweida,691
+Mazra'a,SY130001,SY1300,As-Sweida,SY13,As-Sweida,202
+Mashnaf,SY130002,SY1300,As-Sweida,SY13,As-Sweida,1910
+Fiq,SY140200,SY1402,Al Fiq,SY14,Quneitra,333
+Al-Butayhah,SY140201,SY1402,Al Fiq,SY14,Quneitra,71
+Quneitra,SY140000,SY1400,Quneitra,SY14,Quneitra,333
+Khan Arnaba,SY140001,SY1400,Quneitra,SY14,Quneitra,369
+Al-Khashniyyeh,SY140002,SY1400,Quneitra,SY14,Quneitra,346
+Masaada,SY140003,SY1400,Quneitra,SY14,Quneitra,265
+Kansaba,SY060303,SY0603,Al-Haffa,SY06,Lattakia,169
+Salanfa,SY060301,SY0603,Al-Haffa,SY06,Lattakia,140
+Mzair'a,SY060304,SY0603,Al-Haffa,SY06,Lattakia,91
+Ein Et-teeneh,SY060302,SY0603,Al-Haffa,SY06,Lattakia,54
+Al-Haffa,SY060300,SY0603,Al-Haffa,SY06,Lattakia,115
+Fakhura,SY060402,SY0604,Al-Qardaha,SY06,Lattakia,70
+Jobet Berghal,SY060403,SY0604,Al-Qardaha,SY06,Lattakia,65
+Al-Qardaha,SY060400,SY0604,Al-Qardaha,SY06,Lattakia,171
+Harf Elmseitra,SY060401,SY0604,Al-Qardaha,SY06,Lattakia,54
+Jablah,SY060200,SY0602,Jablah,SY06,Lattakia,91
+Qteilbiyyeh,SY060202,SY0602,Jablah,SY06,Lattakia,108
+Ein Shaqaq,SY060203,SY0602,Jablah,SY06,Lattakia,62
+Dalyeh,SY060204,SY0602,Jablah,SY06,Lattakia,93
+Ein Elsharqiyeh,SY060201,SY0602,Jablah,SY06,Lattakia,67
+Beit Yashout,SY060205,SY0602,Jablah,SY06,Lattakia,63
+Rabee'a,SY060002,SY0600,Lattakia,SY06,Lattakia,212
+Bahlawaniyeh,SY060001,SY0600,Lattakia,SY06,Lattakia,99
+Ein El-Bayda,SY060003,SY0600,Lattakia,SY06,Lattakia,135
+Kasab,SY060005,SY0600,Lattakia,SY06,Lattakia,98
+Hanadi,SY060006,SY0600,Lattakia,SY06,Lattakia,66
+Qastal Maaf,SY060004,SY0600,Lattakia,SY06,Lattakia,246
+Lattakia,SY060000,SY0600,Lattakia,SY06,Lattakia,114
+Aghtrin,SY020401,SY0204,A'zaz,SY02,Aleppo,341
+Suran,SY020405,SY0204,A'zaz,SY02,Aleppo,167
+A'zaz,SY020400,SY0204,A'zaz,SY02,Aleppo,180
+Mare',SY020403,SY0204,A'zaz,SY02,Aleppo,191
+Tall Refaat,SY020402,SY0204,A'zaz,SY02,Aleppo,204
+Nabul,SY020404,SY0204,A'zaz,SY02,Aleppo,174
+Ar-Ra'ee,SY020203,SY0202,Al Bab,SY02,Aleppo,352
+A'rima,SY020206,SY0202,Al Bab,SY02,Aleppo,317
+Al Bab,SY020200,SY0202,Al Bab,SY02,Aleppo,489
+Tadaf,SY020201,SY0202,Al Bab,SY02,Aleppo,321
+Rasm Haram El-Imam,SY020205,SY0202,Al Bab,SY02,Aleppo,203
+Dayr Hafir,SY020202,SY0202,Al Bab,SY02,Aleppo,112
+Eastern Kwaires,SY020204,SY0202,Al Bab,SY02,Aleppo,218
+As-Safira,SY020700,SY0207,As-Safira,SY02,Aleppo,846
+Banan,SY020702,SY0207,As-Safira,SY02,Aleppo,140
+Hajeb,SY020703,SY0207,As-Safira,SY02,Aleppo,260
+Khanaser,SY020701,SY0207,As-Safira,SY02,Aleppo,1603
+Tall Ed-daman,SY020002,SY0200,Jebel Saman,SY02,Aleppo,1146
+Hadher,SY020006,SY0200,Jebel Saman,SY02,Aleppo,131
+Zarbah,SY020005,SY0200,Jebel Saman,SY02,Aleppo,354
+Daret Azza,SY020004,SY0200,Jebel Saman,SY02,Aleppo,227
+Atareb,SY020001,SY0200,Jebel Saman,SY02,Aleppo,308
+Haritan,SY020003,SY0200,Jebel Saman,SY02,Aleppo,232
+Jebel Saman,SY020000,SY0200,Jebel Saman,SY02,Aleppo,663
+Jarablus,SY020800,SY0208,Jarablus,SY02,Aleppo,316
+Ghandorah,SY020801,SY0208,Jarablus,SY02,Aleppo,290
+Bulbul,SY020301,SY0203,Afrin,SY02,Aleppo,203
+Raju,SY020303,SY0203,Afrin,SY02,Aleppo,283
+Ma'btali,SY020306,SY0203,Afrin,SY02,Aleppo,208
+Sheikh El-Hadid,SY020305,SY0203,Afrin,SY02,Aleppo,93
+Jandairis,SY020302,SY0203,Afrin,SY02,Aleppo,319
+Sharan,SY020304,SY0203,Afrin,SY02,Aleppo,305
+Afrin,SY020300,SY0203,Afrin,SY02,Aleppo,427
+Lower Shyookh,SY020601,SY0206,Ain Al Arab,SY02,Aleppo,318
+Ain al Arab,SY020600,SY0206,Ain Al Arab,SY02,Aleppo,745
+Sarin,SY020602,SY0206,Ain Al Arab,SY02,Aleppo,2002
+Menbij,SY020500,SY0205,Menbij,SY02,Aleppo,1219
+Abu Qalqal,SY020501,SY0205,Menbij,SY02,Aleppo,394
+Al-Khafsa,SY020502,SY0205,Menbij,SY02,Aleppo,3061
+Maskana,SY020503,SY0205,Menbij,SY02,Aleppo,505
+As-Suqaylabiyah,SY050200,SY0502,As-Suqaylabiyah,SY05,Hama,224
+Tell Salhib,SY050201,SY0502,As-Suqaylabiyah,SY05,Hama,202
+Ziyara,SY050202,SY0502,As-Suqaylabiyah,SY05,Hama,208
+Shat-ha,SY050203,SY0502,As-Suqaylabiyah,SY05,Hama,186
+Madiq Castle,SY050204,SY0502,As-Suqaylabiyah,SY05,Hama,286
+As-Salamiyeh,SY050300,SY0503,As-Salamiyeh,SY05,Hama,862
+Eastern Bari,SY050301,SY0503,As-Salamiyeh,SY05,Hama,240
+As-Saan,SY050302,SY0503,As-Salamiyeh,SY05,Hama,1937
+Oqeirbat,SY050304,SY0503,As-Salamiyeh,SY05,Hama,2687
+Muhradah,SY050500,SY0505,Muhradah,SY05,Hama,226
+Kafr Zeita,SY050501,SY0505,Muhradah,SY05,Hama,146
+Karnaz,SY050502,SY0505,Muhradah,SY05,Hama,62
+Hama,SY050100,SY0501,Hama,SY05,Hama,870
+Suran,SY050101,SY0501,Hama,SY05,Hama,469
+Harbanifse,SY050102,SY0501,Hama,SY05,Hama,310
+Hamra,SY050103,SY0501,Hama,SY05,Hama,903
+Masyaf,SY050400,SY0504,Masyaf,SY05,Hama,409
+Jeb Ramleh,SY050401,SY0504,Masyaf,SY05,Hama,160
+Oj,SY050402,SY0504,Masyaf,SY05,Hama,87
+Wadi El-oyoun,SY050404,SY0504,Masyaf,SY05,Hama,76
+Ein Halaqim,SY050403,SY0504,Masyaf,SY05,Hama,69
+Ar-Rastan,SY040400,SY0404,Ar-Rastan,SY04,Homs,123
+Talbiseh,SY040401,SY0404,Ar-Rastan,SY04,Homs,166
+Al Quasir,SY040200,SY0402,Al-Qusayr,SY04,Homs,599
+Al Makhrim,SY040600,SY0406,Al Makhrim,SY04,Homs,548
+Jeb Ej-Jarrah,SY040601,SY0406,Al Makhrim,SY04,Homs,2465
+Tadmor,SY040500,SY0405,Tadmor,SY04,Homs,17154
+Sokhneh,SY040501,SY0405,Tadmor,SY04,Homs,13646
+Tall Kalakh,SY040300,SY0403,Tall Kalakh,SY04,Homs,215
+Hadideh,SY040301,SY0403,Tall Kalakh,SY04,Homs,122
+Hawash,SY040304,SY0403,Tall Kalakh,SY04,Homs,71
+Nasra,SY040303,SY0403,Tall Kalakh,SY04,Homs,66
+Homs,SY040100,SY0401,Homs,SY04,Homs,592
+Taldu,SY040101,SY0401,Homs,SY04,Homs,193
+Kherbet Tin Noor,SY040102,SY0401,Homs,SY04,Homs,264
+Ein Elniser,SY040103,SY0401,Homs,SY04,Homs,265
+Farqalas,SY040104,SY0401,Homs,SY04,Homs,682
+Raqama,SY040105,SY0401,Homs,SY04,Homs,473
+Mahin,SY040107,SY0401,Homs,SY04,Homs,469
+Sadad,SY040109,SY0401,Homs,SY04,Homs,376
+Qaryatein,SY040106,SY0401,Homs,SY04,Homs,3738
+Qabu,SY040110,SY0401,Homs,SY04,Homs,71
+Shin,SY040111,SY0401,Homs,SY04,Homs,122
+Hasyaa,SY040108,SY0401,Homs,SY04,Homs,771
+Izra',SY120300,SY1203,Izra',SY12,Dar'a,358
+Jasim,SY120301,SY1203,Izra',SY12,Dar'a,120
+Hrak,SY120302,SY1203,Izra',SY12,Dar'a,133
+Nawa,SY120303,SY1203,Izra',SY12,Dar'a,168
+Sheikh Miskine,SY120304,SY1203,Izra',SY12,Dar'a,114
+Tassil,SY120305,SY1203,Izra',SY12,Dar'a,59
+As-Sanamayn,SY120200,SY1202,As-Sanamayn,SY12,Dar'a,502
+Masmiyyeh,SY120201,SY1202,As-Sanamayn,SY12,Dar'a,487
+Ghabagheb,SY120202,SY1202,As-Sanamayn,SY12,Dar'a,341
+Dar'a,SY120000,SY1200,Dar'a,SY12,Dar'a,341
+Busra Esh-Sham,SY120001,SY1200,Dar'a,SY12,Dar'a,336
+Kherbet Ghazala,SY120002,SY1200,Dar'a,SY12,Dar'a,142
+Ash-Shajara,SY120003,SY1200,Dar'a,SY12,Dar'a,179
+Da'el,SY120004,SY1200,Dar'a,SY12,Dar'a,107
+Mzeireb,SY120005,SY1200,Dar'a,SY12,Dar'a,164
+Jizeh,SY120006,SY1200,Dar'a,SY12,Dar'a,109
+Mseifra,SY120007,SY1200,Dar'a,SY12,Dar'a,168
+Abu Kamal,SY090200,SY0902,Abu Kamal,SY09,Deir-ez-Zor,4175
+Hajin,SY090201,SY0902,Abu Kamal,SY09,Deir-ez-Zor,1743
+Jalaa,SY090202,SY0902,Abu Kamal,SY09,Deir-ez-Zor,631
+Susat,SY090203,SY0902,Abu Kamal,SY09,Deir-ez-Zor,255
+Al Mayadin,SY090300,SY0903,Al Mayadin,SY09,Deir-ez-Zor,1561
+Thiban,SY090301,SY0903,Al Mayadin,SY09,Deir-ez-Zor,1384
+Ashara,SY090302,SY0903,Al Mayadin,SY09,Deir-ez-Zor,1007
+Deir-ez-Zor,SY090100,SY0901,Deir-ez-Zor,SY09,Deir-ez-Zor,4009
+Kisreh,SY090101,SY0901,Deir-ez-Zor,SY09,Deir-ez-Zor,3927
+Basira,SY090102,SY0901,Deir-ez-Zor,SY09,Deir-ez-Zor,954
+Muhasan,SY090103,SY0901,Deir-ez-Zor,SY09,Deir-ez-Zor,1512
+Tabni,SY090104,SY0901,Deir-ez-Zor,SY09,Deir-ez-Zor,1211
+Khasham,SY090105,SY0901,Deir-ez-Zor,SY09,Deir-ez-Zor,114
+Sur,SY090106,SY0901,Deir-ez-Zor,SY09,Deir-ez-Zor,2652
+At Tall,SY030400,SY0304,At Tall,SY03,Rural Damascus,224
+Sidnaya,SY030401,SY0304,At Tall,SY03,Rural Damascus,138
+Rankus,SY030402,SY0304,At Tall,SY03,Rural Damascus,196
+Az-Zabdani,SY030700,SY0307,Az-Zabdani,SY03,Rural Damascus,178
+Dimas,SY030701,SY0307,Az-Zabdani,SY03,Rural Damascus,159
+Ein Elfijeh,SY030702,SY0307,Az-Zabdani,SY03,Rural Damascus,102
+Madaya,SY030703,SY0307,Az-Zabdani,SY03,Rural Damascus,93
+Sarghaya,SY030704,SY0307,Az-Zabdani,SY03,Rural Damascus,121
+Al Qutayfah,SY030300,SY0303,Al Qutayfah,SY03,Rural Damascus,270
+Jirud,SY030301,SY0303,Al Qutayfah,SY03,Rural Damascus,382
+Ma'loula,SY030302,SY0303,Al Qutayfah,SY03,Rural Damascus,226
+Raheiba,SY030303,SY0303,Al Qutayfah,SY03,Rural Damascus,708
+An Nabk,SY030600,SY0306,An Nabk,SY03,Rural Damascus,546
+Deir Attiyeh,SY030601,SY0306,An Nabk,SY03,Rural Damascus,576
+Markaz Darayya,SY030900,SY0309,Darayya,SY03,Rural Damascus,53
+Sahnaya,SY030901,SY0309,Darayya,SY03,Rural Damascus,43
+Hajar Aswad,SY030902,SY0309,Darayya,SY03,Rural Damascus,5
+Duma,SY030200,SY0302,Duma,SY03,Rural Damascus,208
+Harasta,SY030201,SY0302,Duma,SY03,Rural Damascus,25
+Sabe Byar,SY030202,SY0302,Duma,SY03,Rural Damascus,12912
+Dhameer,SY030203,SY0302,Duma,SY03,Rural Damascus,5929
+Nashabiyeh,SY030204,SY0302,Duma,SY03,Rural Damascus,277
+Ghizlaniyyeh,SY030205,SY0302,Duma,SY03,Rural Damascus,388
+Haran Al'awameed,SY030206,SY0302,Duma,SY03,Rural Damascus,126
+Qatana,SY030800,SY0308,Qatana,SY03,Rural Damascus,507
+Sa'sa',SY030802,SY0308,Qatana,SY03,Rural Damascus,329
+Bait Jan,SY030801,SY0308,Qatana,SY03,Rural Damascus,160
+Kisweh,SY030101,SY0301,Rural Damascus,SY03,Rural Damascus,524
+Babella,SY030102,SY0301,Rural Damascus,SY03,Rural Damascus,75
+Jaramana,SY030103,SY0301,Rural Damascus,SY03,Rural Damascus,10
+Maliha,SY030104,SY0301,Rural Damascus,SY03,Rural Damascus,74
+Kafr Batna,SY030105,SY0301,Rural Damascus,SY03,Rural Damascus,26
+Arbin,SY030106,SY0301,Rural Damascus,SY03,Rural Damascus,8
+Qudsiya,SY030107,SY0301,Rural Damascus,SY03,Rural Damascus,59
+Yabroud,SY030500,SY0305,Yabroud,SY03,Rural Damascus,321
+Esal El-Ward,SY030501,SY0305,Yabroud,SY03,Rural Damascus,258
+Sheikh Badr,SY100500,SY1005,Sheikh Badr,SY10,Tartous,102
+Qumseyyeh,SY100502,SY1005,Sheikh Badr,SY10,Tartous,46
+Baramanet Elmashayekh,SY100501,SY1005,Sheikh Badr,SY10,Tartous,65
+Banyas,SY100200,SY1002,Banyas,SY10,Tartous,153
+Rawda,SY100201,SY1002,Banyas,SY10,Tartous,31
+Anaza,SY100202,SY1002,Banyas,SY10,Tartous,101
+Hamam Wasil,SY100204,SY1002,Banyas,SY10,Tartous,45
+Tawahin,SY100205,SY1002,Banyas,SY10,Tartous,86
+Taleen,SY100206,SY1002,Banyas,SY10,Tartous,28
+Qadmous,SY100203,SY1002,Banyas,SY10,Tartous,136
+Dreikish,SY100400,SY1004,Dreikish,SY10,Tartous,84
+Jneinet Raslan,SY100401,SY1004,Dreikish,SY10,Tartous,38
+Hamin,SY100402,SY1004,Dreikish,SY10,Tartous,27
+Dweir Raslan,SY100403,SY1004,Dreikish,SY10,Tartous,35
+Safita,SY100300,SY1003,Safita,SY10,Tartous,125
+Mashta Elhiu,SY100301,SY1003,Safita,SY10,Tartous,52
+Bariqiyeh,SY100302,SY1003,Safita,SY10,Tartous,38
+Sibbeh,SY100303,SY1003,Safita,SY10,Tartous,20
+Sisniyyeh,SY100304,SY1003,Safita,SY10,Tartous,72
+Ras El-Khashufeh,SY100305,SY1003,Safita,SY10,Tartous,47
+Arwad,SY100001,SY1000,Tartous,SY10,Tartous,0
+Tartous,SY100000,SY1000,Tartous,SY10,Tartous,181
+Hameidiyyeh,SY100002,SY1000,Tartous,SY10,Tartous,69
+Kherbet Elma'aza,SY100003,SY1000,Tartous,SY10,Tartous,55
+Soda Khawabi,SY100004,SY1000,Tartous,SY10,Tartous,107
+Kareemeh,SY100005,SY1000,Tartous,SY10,Tartous,55
+Safsafa,SY100006,SY1000,Tartous,SY10,Tartous,67
+Damascus,SY010000,SY0100,Damascus,SY01,Damascus,104
+Saboura,SY050303,SY0503,As-Salamiyeh,SY05,Hama,463
