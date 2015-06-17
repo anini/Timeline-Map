@@ -1,349 +1,256 @@
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html lang="en-gb">
-<head>
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-
+<head id="Head1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Population Pyramid</title>
-    <meta content="Data Visualisation">
-    <meta content="">
-    <meta content="article">
-    <meta content="images/favicon.icon">
-    <meta content="Data Visualisation">
-    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script src="js/EasyModal.js" type="text/javascript"></script>
-    <link href="css/Sitep.css" rel="stylesheet" type="text/css">
-    <link href="favicon.ico" rel="shortcut icon">
+    <meta property="og:title" content="Data Visualisation" />
+    <meta property="og:site_name" content="visualise.DataNirvana.org" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://visualise.DataNirvana.org" />
+    <meta property="og:image" content="http://visualise.DataNirvana.org/favicon.icon" />
+    <meta property="og:description" content="Data Visualisation" />
+
+
+        <!-- Bootstrap with Yeti them from bootswatch-->
+        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+        <link rel="stylesheet" href="css/bootswatch.min.css">
+        <link rel="stylesheet" href="css/font-humanitarian.css">
+
+
     <style type="text/css">
-    .PageContainer {
+
+        .PageContainer {
             min-height:100%;
             position:relative;
         }
 
+        body {
+          font: 14px sans-serif;
+          color: #505050;
+        }
 
-            body {
-              font: 14px sans-serif;
-              color: #505050;
-            }
+        svg {
+          font: 10px sans-serif;
+        }
 
-            svg {
-              font: 10px sans-serif;
-            }
-
-            .birthYearText {
-              font: 9px sans-serif;
-            }
+        .birthYearText {
+          font: 9px sans-serif;
+        }
 
 
-            .x.axis {
-              font-weight: 600;
-              fill: #505050;
-            }
+        .x.axis {
+          font-weight: 600;
+          fill: #505050;
+        }
 
-            .x.axis path {
-              display: none;
-            }
+        .x.axis path {
+          display: none;
+        }
 
-            .x.axis line {
-              stroke: #fff;
-              stroke-opacity: .2;
-              shape-rendering: crispEdges;
-            }
+        .x.axis line {
+          stroke: #fff;
+          stroke-opacity: .2;
+          shape-rendering: crispEdges;
+        }
 
-            .x.axis .zero line {
-              stroke: #fff;
-              stroke-opacity: .2;
-            }
+        .x.axis .zero line {
+          stroke: #fff;
+          stroke-opacity: .2;
+        }
 
-            .title {
-              font-weight: 300;
-              font-size: 50px;
-              fill: #505050;
-            }
+        .title {
+          font-weight: 300;
+          font-size: 50px;
+          fill: #505050;
+        }
 
-            .subTitle {
-              font-weight: 300;
-              font-size: 12px;
-              fill: #ffffff;
-            }
+        .subTitle {
+          font-weight: 300;
+          font-size: 12px;
+          fill: #ffffff;
+        }
 
-            .birthyear,
-            .age {
-              text-anchor: middle;
-            }
+        .birthyear,
+        .age {
+          text-anchor: middle;
+        }
 
-            .age {
-              font-weight: 600;
-              fill: #505050;
-              text-shadow: 0px 0px 2px #ffffff;
-            }
+        .age {
+          font-weight: 600;
+          fill: #505050;
+          text-shadow: 0px 0px 2px #ffffff;
+        }
 
-            .birthyear {
-              fill: #fff;
-            }
+        .birthyear {
+          fill: #fff;
+        }
 
-            rect:hover {
-              fill: #b07800;
-            }
-            rect:first-child:hover {
-              fill: #192838;
-            }
+        rect:hover {
+          fill: #b07800;
+        }
+        rect:first-child:hover {
+          fill: #192838;
+        }
 
-            rect {
-              fill-opacity: 1.0;
-              fill: #DE9700;
-            }
+        rect {
+          fill-opacity: 1.0;
+          fill: #DE9700;
+        }
 
-            rect:first-child {
-              fill: #2B4661;
-            }
+        rect:first-child {
+          fill: #2B4661;
+        }
 
     </style>
-    <script src="js/d3_v3.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        // set up the autocomplete widget ....
-            // On session expired reload!
-            function DoAJAXSessionExpired() {
 
-                this.location = "Default.aspx";
+    <script type="text/javascript" src="js/d3_v3.min.js"></script>
 
-            }
-    </script>
-    <script type="text/javascript">
-        // set up the autocomplete widget ....
 
-    </script>
 </head>
-
 <body>
-    <form action="./Population%20Pyramid_files/Population%20Pyramid.htm" id=
-    "Form1" method="post" name="Form1">
-        <div class="aspNetHidden">
-            <input id="__VIEWSTATE" name="__VIEWSTATE" type="hidden" value=
-            "/wEPDwUKMTY1NDU2MTA1Mg9kFgJmD2QWAgIDD2QWBAIBD2QWAgIBDxYCHglpbm5lcmh0bWwFMFBvcHVsYXRpb24gUHlyYW1pZCAtIEFmZ2hhbiBSZWZ1Z2VlcyBpbiBQYWtpc3RhbmQCBQ9kFgYCAQ8PFgIeBFRleHQFDTMyLDUwNCB2aXNpdHNkZAIDDw8WAh8BBQMwLjVkZAIFDw8WAh8BBQhKdW4gMjAxNWRkZHBfTukhAlkyjNLQcqv0N2LoVo/nr0N3SdVyFkWAS510">
-        </div>
+    <form method="post" action="" id="Form1">
 
-        <div class="aspNetHidden">
-            <input id="__VIEWSTATEGENERATOR" name="__VIEWSTATEGENERATOR" type=
-            "hidden" value="864B594A">
-        </div>
-
-        <div class="PageContainer">
-            <div class="Page">
-                <div class="Header" id="SiteHeader">
-                    <div class="PageTitle">
-                        <h1><span id="MyPageTitle">Population Pyramid - Afghan Refugees in Pakistan</span></h1>
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                        <h1>Population Pyramid</h1>
                 </div>
+                
+                        <p>This data visualisation present the impact of 5 years of war on the syrian population. It shows:
+                        <ul>
+                            <li> Population extrapolation based on 2004 census <small>(source: <a href="http://www.cbssyr.sy/index-EN.htm">Syrian Central Bureau of Statistics</a>)</small></li>
+                            <li> Population Internally displaced <small>(source: <a href="http://www.humanitarianresponse.info/en/operations/syria">Office for the coordination of Humanitarian Affair - OCHA</a>)</small></li>
+                            <li> Refugee Population who left the country <small>(source: <a href="http://data.unhcr.org/syrianrefugees">United Nations High Commissionner for Refugees - UNHCR </a>)</small></li>
+                            <li> Population who died because of the war <small>(source: <a href="http://www.syrianshuhada.com/default.asp?lang=en">Syrian Shuhada</a>)</small></li>
+                        </ul>
+                        </p>
+            </div>
 
-                <div class="main">
-                    <div class="PageContainer" style= "position: relative; width:100%; height: 100%;">
-                        <br>
-                        <br>
+            <div class="row">
+                <div class="col-lg-4">
+                    <span style="width:33%; text-align: center; float: left;"><a href="javascript: DoReset();" title="Reset / recalculate"><img src="img/icon_reset.png" width="30px" /></a></span>
+                    <span style="width:33%; text-align: center; float: left;"><a href="javascript: DoPlayPause();" title="Play / pause"><img id="IconPlay" src="img/icon_play.png" width="30px" /></a></span>
+                    <span style="width:33%; text-align: center; float: left;"><a href="javascript: DoLoop();" title="Loop"><img id="IconLoop" src="img/icon_loop_grey.png" width="30px" /></a></span>
 
-                        <div style= "margin: 0 auto; min-width: 930px; width: 930px; min-height: 750px;">
-                        <div id="PopPyramid" style= "float: right; min-width: 500px; width: 500px; padding: 0px 0px 0px 0px; border: 7px solid #505050; border-radius:10px 10px 10px 10px; box-shadow: 4px 4px 3px #cccccc;"></div>
+                   <br /><br />
+                   <br /><br />
 
-                            <div style=
-                            "position: relative; float: left; width: 400px; padding: 0px 0px 0px 0px;">
-                            <div style= "background-color:#505050; padding: 5px 30px 5px 30px; height: 50px; border-radius:10px 10px 10px 10px; box-shadow: 4px 4px 3px #cccccc;">
-                            
-                                <span style= "width:33%; text-align: center; float: left;"> <a href="javascript:%20DoReset();" title="Reset / recalculate">  <img src="img/icon_reset.png"  width="50px"></a></span> 
-                                <span style="width:33%; text-align: center; float: left;">
-                                    <a href="javascript:%20DoPlayPause();"
-                                    title="Play / pause"><img id="IconPlay"
-                                    src="img/icon_play.png"
-                                    width="50px"></a></span> <span style=
-                                    "width:33%; text-align: center; float: left;">
-                                    <a href="javascript:%20DoLoop();" title=
-                                    "Loop"><img id="IconLoop" src=
-                                    "img/icon_loop_grey.png"
-                                    width="50px"></a></span>
-                                </div><br>
-                                <br>
-
-                                <div style=
-                                "background-color:#505050; padding: 10px 30px 10px 30px; border-radius:10px 10px 10px 10px; box-shadow: 4px 4px 3px #cccccc; color: #ffffff;">
-                                <table>
-                                        <tbody>
-                                            <tr>
-                                                <td style="width:70%;">Total
-                                                Population:</td>
-
-                                                <td style="text-align:right;">
-                                                <span id=
-                                                "TotalPopulation"></span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td style="width:70%;">
-                                                Male:Female %:</td>
-
-                                                <td style="text-align:right;">M
-                                                <span id=
-                                                "MalePercent"></span>%&nbsp;&nbsp;F
-                                                <span id=
-                                                "FemalePercent"></span>%</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Birth Rate (%):</td>
-
-                                                <td style="text-align:right;">
-                                                <input id="BirthRate" onchange=
-                                                "javascript:uiNumbersChanged=true;"
-                                                style=
-                                                "text-align: right; width:100px;"
-                                                type="text" value="3.4"></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Births during year:</td>
-
-                                                <td style="text-align:right;">
-                                                <span id=
-                                                "NumberBirths"></span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Death Rate (%):</td>
-
-                                                <td style="text-align:right;">
-                                                <input id="DeathRate" onchange=
-                                                "javascript:uiNumbersChanged=true;"
-                                                style=
-                                                "text-align: right; width:100px;"
-                                                type="text" value="0.8"></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Deaths during year:</td>
-
-                                                <td style="text-align:right;">
-                                                <span id=
-                                                "NumberDeaths"></span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Population increases:</td>
-
-                                                <td style="text-align:right;">
-                                                <input id="PopIncrease"
-                                                onchange=
-                                                "javascript:uiNumbersChanged=true;"
-                                                style=
-                                                "text-align: right; width:100px;"
-                                                type="text" value="5000"></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Population decreases:</td>
-
-                                                <td style="text-align:right;">
-                                                <input id="PopDecrease"
-                                                onchange=
-                                                "javascript:uiNumbersChanged=true;"
-                                                style=
-                                                "text-align: right; width:100px;"
-                                                type="text" value="40000"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div><br>
-                                <br>
-                                <a href="javascript:UseDefaultValues();">Use
-                                default settings...</a>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                           <table>
+                                <tr><td style="width:70%;">Total Population:</td>                  <td style="text-align:right;"><span id="TotalPopulation">XXXXXX</span></td></tr>
+                                <tr><td style="width:70%;">Male:Female %:</td>                  <td style="text-align:right;">M<span id="MalePercent">XX.X</span>%&nbsp;&nbsp;F<span id="FemalePercent">XX.X</span>%</td></tr>
+                                <tr><td>Birth Rate (%):</td>                    <td style="text-align:right;"><input id="BirthRate" type="text" onchange="javascript:uiNumbersChanged=true;" style="text-align: right; width:100px;" value="3.4" /></td></tr>
+                                <tr><td>Births during year:</td>                  <td style="text-align:right;"><span id="NumberBirths">XXXXXX</span></td></tr>
+                                <tr><td>Death Rate (%):</td>                    <td style="text-align:right;"><input id="DeathRate" type="text" onchange="javascript:uiNumbersChanged=true;" style="text-align: right; width:100px;" value="0.8" /></td></tr>
+                                <tr><td>Deaths during year:</td>                  <td style="text-align:right;"><span id="NumberDeaths">XXXXXX</span></td></tr>
+                                <tr><td>Population increases:</td>        <td style="text-align:right;"><input id="PopIncrease" type="text" onchange="javascript:uiNumbersChanged=true;" style="text-align: right; width:100px;" value="5000" /></td></tr>
+                                <tr><td>Population decreases:</td><td style="text-align:right;"><input id="PopDecrease" type="text" onchange="javascript:uiNumbersChanged=true;" style="text-align: right; width:100px;" value="40000" /></td></tr>
+                            </table>
                             </div>
                         </div>
-                    </div><script type="text/javascript">
-// The global parameters
-                    var startYear = 2014;
-                    var title; // global variable for the title ...
-                    // the data popup ...
-                    var subTitleGroup, subTitle1, subTitle2, subTitle3, subTitle4, subTitle1b, subTitle2b, subTitle3b, subTitle4b;
+                    <br /><br />
+                    <a href="javascript:UseDefaultValues();">Use default settings...</a>
 
-                    // Number of age brackets
-                    var numberOfBins = 85;
-                    // the size of each bracket defined by the number of years per bar ...
-                    var yearBracket = 1;
-                    // the number of years to increment the graph during the animation
-                    var animationIncrement = 1;
-                    // number of years to model ...
-                    var numYearsToProject = 20;
+                </div>
 
-                    // The overall size of the graphic ...
-                    var margin = { top: 20, right: 40, bottom: 30, left: 20 },
-                    width = 500 - margin.left - margin.right,
-                    height = 700 - margin.top - margin.bottom,
-                    barHeight = Math.floor(height / numberOfBins) - 1;
+                <div class="col-lg-8">
+                    <div id="PopPyramid" ></div>
+                </div>
+            </div>
 
-                    // the height of the popup...
-                    var popupHeight = 57;
 
-                    // Our root SVG element with a bottom-right origin.
-                    var svg = d3.select("#PopPyramid").append("svg")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)
-                    .append("g")
-                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                    // A sliding container to hold the bars by birthyear.
-                    var birthyears = svg.append("g")
-                    .attr("class", "birthyears");
+        </div>
 
-                    // the x axis
-                    var x = d3.scale.linear()
-                    .range([width, 0]);
+        <script type="text/javascript">
+            // The global parameters
+            var startYear = 2014;
+            var title; // global variable for the title ...
+            // the data popup ...
+            var subTitleGroup, subTitle1, subTitle2, subTitle3, subTitle4, subTitle1b, subTitle2b, subTitle3b, subTitle4b;
 
-                    // the y axis
-                    var y = d3.scale.linear()
-                    .range([barHeight / 2, height - barHeight / 2]);
+            // Number of age brackets
+            var numberOfBins = 85;
+            // the size of each bracket defined by the number of years per bar ...
+            var yearBracket = 1;
+            // the number of years to increment the graph during the animation
+            var animationIncrement = 1;
+            // number of years to model ...
+            var numYearsToProject = 20;
 
-                    // the X-Axis gridlines ...
-                    var xAxis = d3.svg.axis()
-                    .scale(x)
-                    .orient("bottom")
-                    .tickSize(-height)
-                    .tickFormat(function (d) {
+            // The overall size of the graphic ...
+            var margin = { top: 20, right: 40, bottom: 30, left: 20 },
+            width = 500 - margin.left - margin.right,
+            height = 700 - margin.top - margin.bottom,
+            barHeight = Math.floor(height / numberOfBins) - 1;
+
+            // the height of the popup...
+            var popupHeight = 57;
+
+            // Our root SVG element with a bottom-right origin.
+            var svg = d3.select("#PopPyramid").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            // A sliding container to hold the bars by birthyear.
+            var birthyears = svg.append("g")
+                .attr("class", "birthyears");
+
+            // the x axis
+            var x = d3.scale.linear()
+            .range([width, 0]);
+
+            // the y axis
+            var y = d3.scale.linear()
+            .range([barHeight / 2, height - barHeight / 2]);
+
+            // the X-Axis gridlines ...
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom")
+                .tickSize(-height)
+                .tickFormat(function (d) {
                     return Math.round(d / 1000) + "k";
                     //            return Math.round(d);
-                    });
+                });
 
 
-                    var rawDataOrig = null;
-                    var rawData = null;
-                    var summaryDeath = [];
-                    var uiIsPlaying = false;
-                    var uiNumbersChanged = false;
-                    var uiIsLoop = false;
-                    var uiIntervalID = "";
-                    var uiUpdateFunction = null;
-                    var uiResetFunction = null;
-                    var uiStartFunction = null;
+            var rawDataOrig = null;
+            var rawData = null;
+            var summaryDeath = [];
+            var uiIsPlaying = false;
+            var uiNumbersChanged = false;
+            var uiIsLoop = false;
+            var uiIntervalID = "";
+            var uiUpdateFunction = null;
+            var uiResetFunction = null;
+            var uiStartFunction = null;
 
-                    // Load the CSV data ...
-                    d3.csv("data/PopulationPyramidUNHCR.csv", function (error, rawDataOrig) {
+            // Load the CSV data ...
+            d3.csv("data/PopulationPyramidUNHCR.csv", function (error, rawDataOrig) {
 
-                    // Setup a few local parameters
-                    var age1, year0, year1;
-                    // A group of groups for each birth year ...
-                    var birthyear = null;
+                // Setup a few local parameters
+                var age1, year0, year1;
+                // A group of groups for each birth year ...
+                var birthyear = null;
 
 
-                    // Convert strings to numbers.
-                    rawDataOrig.forEach(function (d) {
+                // Convert strings to numbers.
+                rawDataOrig.forEach(function (d) {
                     d.people = +d.people;
                     d.year = +d.year;
                     d.age = +d.age;
-                    });
+                });
 
-                    // Generate the data ....
-                    BuildAndApplyData(rawDataOrig);
+                // Generate the data ....
+                BuildAndApplyData(rawDataOrig);
 
-                    // Add an axis to show the population values.
-                    svg.append("g")
+                // Add an axis to show the population values.
+                svg.append("g")
                     .attr("class", "x axis")
                     .attr("transform", "translate(0," + height + ")")
                     .call(xAxis)
@@ -352,22 +259,22 @@
                     .classed("zero", true);
 
 
-                    // Build the SVG ...
-                    BuildSVG();
+                // Build the SVG ...
+                BuildSVG();
 
 
 
-                    //==
-                    function BuildAndApplyData(rawDataOrig) {
+                //==
+                function BuildAndApplyData(rawDataOrig) {
 
                     //___ Build the additional population projections ...
                     rawData = BuildFutureData(startYear, rawDataOrig);
 
                     // Convert strings to numbers.
                     rawData.forEach(function (d) {
-                    d.people = +d.people;
-                    d.year = +d.year;
-                    d.age = +d.age;
+                        d.people = +d.people;
+                        d.year = +d.year;
+                        d.age = +d.age;
                     });
 
                     SetTotal(rawData, startYear);
@@ -392,15 +299,15 @@
                     .rollup(function (v) { return v.map(function (d) { return d.people; }); })
                     .map(rawData);
 
-                    }
+                }
 
-                    //== from here need to build into a reset function ...
-                    function BuildSVG() {
+                //== from here need to build into a reset function ...
+                function BuildSVG() {
 
                     // This rescales the x axis if needed .....
                     svg.select(".x.axis")
-                    .transition().duration(1500).ease("sin-in-out")  // https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_ease and https://gist.github.com/phoebebright/3098488
-                    .call(xAxis);
+                        .transition().duration(1500).ease("sin-in-out")  // https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_ease and https://gist.github.com/phoebebright/3098488
+                        .call(xAxis);
 
 
                     // Add groups for each birthyear (so that no enter or exit is required).  The rectangles and labels will be added subsequently ...
@@ -409,7 +316,7 @@
                     .enter().append("g")
                     .attr("class", "birthyear")
                     .attr("transform", function (birthyear) {
-                    return "translate(0," + y(birthyear) + ")";
+                        return "translate(0," + y(birthyear) + ")";
                     })
                     ;
 
@@ -417,7 +324,7 @@
                     // Append rectangles for each birth year (male and female)
                     birthyear.selectAll("rect")
                     .data(function (birthyear) {
-                    return data[year][birthyear] || [0, 0];
+                        return data[year][birthyear] || [0, 0];
                     })
                     .enter().append("rect")
                     .attr("x", CalcX)
@@ -430,149 +337,149 @@
                     // Append interactivity for each birth year rectangles
                     birthyear
                     .on("mouseover", function (birthyear) {
-                    subTitleGroup.style("visibility", "visible");
-                    subTitleGroup.attr("transform", "translate(347," + (y(birthyear + (startYear - year)) - (popupHeight / 2)) + ")");
+                        subTitleGroup.style("visibility", "visible");
+                        subTitleGroup.attr("transform", "translate(347," + (y(birthyear + (startYear - year)) - (popupHeight / 2)) + ")");
 
-                    // get the male and female data from the datamap ...
-                    var mnf = [0, 0];
-                    if (data[year][birthyear] != null) {
-                        mnf = data[year][birthyear].toString().split(",");
-                    }
+                        // get the male and female data from the datamap ...
+                        var mnf = [0, 0];
+                        if (data[year][birthyear] != null) {
+                            mnf = data[year][birthyear].toString().split(",");
+                        }
 
-                    subTitle1.text("Age:");
-                    subTitle1b.text((year - birthyear));
-                    subTitle2.text("YoB:");
-                    subTitle2b.text(birthyear);
-                    subTitle3.text("M:");
-                    subTitle3b.text(NumberWithCommas(mnf[0]));
-                    subTitle4.text("F:");
-                    subTitle4b.text(NumberWithCommas(-1 * mnf[1]));
+                        subTitle1.text("Age:");
+                        subTitle1b.text((year - birthyear));
+                        subTitle2.text("YoB:");
+                        subTitle2b.text(birthyear);
+                        subTitle3.text("M:");
+                        subTitle3b.text(NumberWithCommas(mnf[0]));
+                        subTitle4.text("F:");
+                        subTitle4b.text(NumberWithCommas(-1 * mnf[1]));
 
                     })
 
                     .on("mouseout", function (birthyear) {
-                    subTitle1b.text("");
-                    subTitle2b.text("");
-                    subTitle3b.text("");
-                    subTitle4b.text("");
-                    subTitleGroup.style("visibility", "hidden");
+                        subTitle1b.text("");
+                        subTitle2b.text("");
+                        subTitle3b.text("");
+                        subTitle4b.text("");
+                        subTitleGroup.style("visibility", "hidden");
                     })
                     ;
 
 
-                    }
+                }
 
 
-                    // A title label for the current year - note that the title has to be added after the XAxis or the gridlines show through ...
-                    title = svg.append("text")
+                // A title label for the current year - note that the title has to be added after the XAxis or the gridlines show through ...
+                title = svg.append("text")
                     .attr("class", "title")
                     .attr("dy", ".71em")
                     .text(startYear);
 
-                    // setup the popup data summary on mouseover ...
-                    {
+                // setup the popup data summary on mouseover ...
+                {
                     subTitleGroup = svg.append("g").attr("transform", "translate(0,0)").style("visibility", "hidden");
 
                     subTitleGroup.append("path")
-                    .attr("d", "m-8,28.5 L-1,21 L-1,36 z")
-                    .style("fill", "#505050")
-                    .style("fill-opacity", 0.8)
+                        .attr("d", "m-8,28.5 L-1,21 L-1,36 z")
+                        .style("fill", "#505050")
+                        .style("fill-opacity", 0.8)
                     ;
 
                     subTitleGroup.append("rect")
-                    .attr("width", 80)
-                    .attr("height", popupHeight)
-                    .style("fill", "#505050")
-                    .style("fill-opacity", 0.8)
-                    .attr("rx", 5)
-                    .attr("ry", 5)
+                        .attr("width", 80)
+                        .attr("height", popupHeight)
+                        .style("fill", "#505050")
+                        .style("fill-opacity", 0.8)
+                        .attr("rx", 5)
+                        .attr("ry", 5)
                     ;
 
                     subTitle1 = subTitleGroup.append("text")
-                    .attr("class", "subTitle")
-                    .attr("dy", ".71em")
-                    .attr("x", 5)
-                    .attr("y", 6)
-                    .text("");
+                        .attr("class", "subTitle")
+                        .attr("dy", ".71em")
+                        .attr("x", 5)
+                        .attr("y", 6)
+                        .text("");
                     subTitle2 = subTitleGroup.append("text")
-                    .attr("class", "subTitle")
-                    .attr("dy", ".71em")
-                    .attr("x", 5)
-                    .attr("y", 19)
-                    .text("");
+                        .attr("class", "subTitle")
+                        .attr("dy", ".71em")
+                        .attr("x", 5)
+                        .attr("y", 19)
+                        .text("");
                     subTitle3 = subTitleGroup.append("text")
-                    .attr("class", "subTitle")
-                    .attr("dy", ".71em")
-                    .attr("x", 5)
-                    .attr("y", 31)
-                    .text("");
+                        .attr("class", "subTitle")
+                        .attr("dy", ".71em")
+                        .attr("x", 5)
+                        .attr("y", 31)
+                        .text("");
                     subTitle4 = subTitleGroup.append("text")
-                    .attr("class", "subTitle")
-                    .attr("dy", ".71em")
-                    .attr("x", 5)
-                    .attr("y", 43)
-                    .text("");
+                        .attr("class", "subTitle")
+                        .attr("dy", ".71em")
+                        .attr("x", 5)
+                        .attr("y", 43)
+                        .text("");
 
                     subTitle1b = subTitleGroup.append("text")
-                    .attr("class", "subTitle")
-                    .attr("dy", ".71em")
-                    .attr("x", 75)
-                    .attr("y", 6)
-                    .style("text-anchor", "end")
-                    .text("");
+                        .attr("class", "subTitle")
+                        .attr("dy", ".71em")
+                        .attr("x", 75)
+                        .attr("y", 6)
+                        .style("text-anchor", "end")
+                        .text("");
                     subTitle2b = subTitleGroup.append("text")
-                    .attr("class", "subTitle")
-                    .attr("dy", ".71em")
-                    .attr("x", 75)
-                    .attr("y", 19)
-                    .style("text-anchor", "end")
-                    .text("");
+                        .attr("class", "subTitle")
+                        .attr("dy", ".71em")
+                        .attr("x", 75)
+                        .attr("y", 19)
+                        .style("text-anchor", "end")
+                        .text("");
                     subTitle3b = subTitleGroup.append("text")
-                    .attr("class", "subTitle")
-                    .attr("dy", ".71em")
-                    .attr("x", 75)
-                    .attr("y", 31)
-                    .style("text-anchor", "end")
-                    .text("");
+                        .attr("class", "subTitle")
+                        .attr("dy", ".71em")
+                        .attr("x", 75)
+                        .attr("y", 31)
+                        .style("text-anchor", "end")
+                        .text("");
                     subTitle4b = subTitleGroup.append("text")
-                    .attr("class", "subTitle")
-                    .attr("dy", ".71em")
-                    .attr("x", 75)
-                    .attr("y", 43)
-                    .style("text-anchor", "end")
-                    .text("");
-                    }
+                        .attr("class", "subTitle")
+                        .attr("dy", ".71em")
+                        .attr("x", 75)
+                        .attr("y", 43)
+                        .style("text-anchor", "end")
+                        .text("");
+                }
 
 
-                    // Moving Labels for ages showing the birth year...  These dont work well with the small age bars, so leave these out for now
-                    //        birthyear.append("text")
-                    //            .attr("x", (width / 2))
-                    //            .attr("y", 3) // kind of centres the text vertically (10px font / 2)
-                    //            .attr("class", "birthYearText")
-                    //            .text(function (birthyear) { return (birthyear % 5 == 0) ? birthyear : ""; });
+                // Moving Labels for ages showing the birth year...  These dont work well with the small age bars, so leave these out for now
+                //        birthyear.append("text")
+                //            .attr("x", (width / 2))
+                //            .attr("y", 3) // kind of centres the text vertically (10px font / 2)
+                //            .attr("class", "birthYearText")
+                //            .text(function (birthyear) { return (birthyear % 5 == 0) ? birthyear : ""; });
 
-                    // Y Axis Labels - Add labels to show age (separate; not animated).        
-                    svg.selectAll(".age")
+                // Y Axis Labels - Add labels to show age (separate; not animated).
+                svg.selectAll(".age")
                     .data(d3.range(0, age1 + 1, 5))
                     .enter().append("text")
                     .attr("class", "age")
                     .attr("x", width - 5)
                     .attr("y", function (age) {
-                    return y(year - age);
+                        return y(year - age);
                     })
                     .attr("dy", ".71em")
                     .text(function (age) { return age; });
 
 
-                    //== Add labels at the top for Men and Women ...
-                    svg.append("text")
+                //== Add labels at the top for Men and Women ...
+                svg.append("text")
                     .attr("class", "age")
                     .attr("x", (width / 2) - 10)
                     .attr("y", 10)
                     .style("text-anchor", "end")
                     .style("fill", "#999999")
                     .text("Male");
-                    svg.append("text")
+                svg.append("text")
                     .attr("class", "age")
                     .attr("x", (width / 2) + 10)
                     .attr("y", 10)
@@ -581,153 +488,153 @@
                     .text("Female");
 
 
-                    //== Calculate the width of a bar given the population value
-                    function CalcW(value) {
+                //== Calculate the width of a bar given the population value
+                function CalcW(value) {
                     var val = 0;
 
                     if (x(value) > (width / 2)) {
-                    val = x(value) - (width / 2);
+                        val = x(value) - (width / 2);
                     } else {
-                    val = (width / 2) - x(value);
+                        val = (width / 2) - x(value);
                     }
 
                     if (isNaN(val)) {
-                    val = 0;
+                        val = 0;
                     }
                     return val;
-                    }
+                }
 
-                    //== Calculate the x corner of a bar given the population value
-                    function CalcX(value) {
+                //== Calculate the x corner of a bar given the population value
+                function CalcX(value) {
                     var val = 0;
 
                     if (x(value) > (width / 2)) {
-                    val = (width / 2);
+                        val = (width / 2);
                     } else {
-                    val = x(value);
+                        val = x(value);
                     }
 
                     if (isNaN(val)) {
-                    val = 0;
+                        val = 0;
                     }
                     return val;
-                    }
+                }
 
-                    // Ensure that the animation has got the focus ...
-                    window.focus();
+                // Ensure that the animation has got the focus ...
+                window.focus();
 
-                    //== Enable animation using the key presses for left and right ...
-                    d3.select(window).on("keydown", function () {
+                //== Enable animation using the key presses for left and right ...
+                d3.select(window).on("keydown", function () {
                     switch (d3.event.keyCode) {
-                    case 37: year = Math.max(year0, year - animationIncrement); break;
-                    case 39: IncrementYear(); break;
+                        case 37: year = Math.max(year0, year - animationIncrement); break;
+                        case 39: IncrementYear(); break;
                     }
                     Update();
-                    });
+                });
 
-                    //== the animation function
-                    function IncrementYear() {
+                //== the animation function
+                function IncrementYear() {
 
                     // catch the looping of the year ...
                     if (year + animationIncrement > year1 && uiIsLoop == true) {
-                    year = year0;
+                        year = year0;
                     } else if (year + animationIncrement > year1 && uiIsPlaying == true) {
-                    DoPlayPause();
-                    year = year1;
+                        DoPlayPause();
+                        year = year1;
                     } else {
-                    year = Math.min(year1, year + animationIncrement);
+                        year = Math.min(year1, year + animationIncrement);
                     }
 
-                    }
+                }
 
-                    //== the animation function
-                    function Update() {
+                //== the animation function
+                function Update() {
                     if (!(year in data)) return;
                     title.text(year);
 
                     birthyears.transition()
-                    .duration(750)
-                    .attr("transform", "translate(0," + (y(year0) - y(year)) + ")");
+                        .duration(750)
+                        .attr("transform", "translate(0," + (y(year0) - y(year)) + ")");
 
                     birthyear.selectAll("rect")
-                    .data(function (birthyear) { return data[year][birthyear] || [0, 0]; })
-                    .transition()
-                    .duration(750)
-                    .attr("x", CalcX)
-                    .attr("width", CalcW)
+                        .data(function (birthyear) { return data[year][birthyear] || [0, 0]; })
+                        .transition()
+                        .duration(750)
+                        .attr("x", CalcX)
+                        .attr("width", CalcW)
                     ;
 
                     SetTotal(rawData, year);
-                    }
-                    //==
-                    uiStartFunction = function () {
+                }
+                //==
+                uiStartFunction = function () {
                     // just reset the year to be the start year .... if this is the last year ...
                     if (year == year1) {
-                    year = year0;
-                    Update();
+                        year = year0;
+                        Update();
                     }
-                    }
-                    //==
-                    uiUpdateFunction = function () {
+                }
+                //==
+                uiUpdateFunction = function () {
                     IncrementYear();
                     Update();
-                    };
-                    //==
-                    uiResetFunction = function () {
+                };
+                //==
+                uiResetFunction = function () {
 
                     //                alert(uiNumbersChanged);
 
                     if (uiNumbersChanged == true) {
-                    uiNumbersChanged = false;
+                        uiNumbersChanged = false;
 
-                    // Remove the birth year and the xAxis .......
-                    birthyear.remove();
-                    //                xAxis.remove();
-                    //d3.select("xAxis").remove();
+                        // Remove the birth year and the xAxis .......
+                        birthyear.remove();
+                        //                xAxis.remove();
+                        //d3.select("xAxis").remove();
 
-                    // Generate the data ....
-                    BuildAndApplyData(rawDataOrig);
-                    // Build the SVG ...
-                    BuildSVG();
+                        // Generate the data ....
+                        BuildAndApplyData(rawDataOrig);
+                        // Build the SVG ...
+                        BuildSVG();
 
                     }
                     year = year0;
                     Update();
 
-                    };
+                };
 
 
-                    });
+            });
 
 
-                    //==
-                    function NumberWithCommas(x) {
-                    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    }
+            //==
+            function NumberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
 
 
 
 
-                    //==
-                    function BuildFutureData(startYear, data) {
+            //==
+            function BuildFutureData(startYear, data) {
 
-                    var newData = [];
-                    var tempData = [];
+                var newData = [];
+                var tempData = [];
 
-                    data.forEach(function (val) {
+                data.forEach(function (val) {
                     newData.push(val);
-                    });
+                });
 
 
-                    //__ Setup the death info ... SORRY - this one is hard coded for now!!!
-                    var tempSummaryDeath = {};
-                    tempSummaryDeath.year = 2014;
-                    tempSummaryDeath.people = Math.round(1500460 * 0.008);
-                    summaryDeath.push(tempSummaryDeath);
+                //__ Setup the death info ... SORRY - this one is hard coded for now!!!
+                var tempSummaryDeath = {};
+                tempSummaryDeath.year = 2014;
+                tempSummaryDeath.people = Math.round(1500460 * 0.008);
+                summaryDeath.push(tempSummaryDeath);
 
 
-                    //__ model the data forwards for 20 years from the startYear ...
-                    for (var i = 1; i <= numYearsToProject; i++) {
+                //__ model the data forwards for 20 years from the startYear ...
+                for (var i = 1; i <= numYearsToProject; i++) {
                     // calculate the current year
                     var currentYear = +startYear + i;
                     // clear the temporary data ...
@@ -735,34 +642,34 @@
 
                     //__ create the new birth information for Girls and Boys ...
                     {
-                    var tempStartRow = {};
-                    tempStartRow.year = "" + currentYear;
-                    tempStartRow.age = 0;
-                    tempStartRow.sex = 1;
-                    tempStartRow.people = 0;
-                    tempData.push(tempStartRow);
+                        var tempStartRow = {};
+                        tempStartRow.year = "" + currentYear;
+                        tempStartRow.age = 0;
+                        tempStartRow.sex = 1;
+                        tempStartRow.people = 0;
+                        tempData.push(tempStartRow);
 
-                    var tempStartRow2 = {};
-                    tempStartRow2.year = "" + currentYear;
-                    tempStartRow2.age = 0;
-                    tempStartRow2.sex = 2;
-                    tempStartRow2.people = 0;
-                    tempData.push(tempStartRow2);
+                        var tempStartRow2 = {};
+                        tempStartRow2.year = "" + currentYear;
+                        tempStartRow2.age = 0;
+                        tempStartRow2.sex = 2;
+                        tempStartRow2.people = 0;
+                        tempData.push(tempStartRow2);
                     }
 
                     //__ shuffle the data along and update the year (ignoring the last two entries which will be the two 91s ...)
                     for (var j = 0; j < data.length; j++) {
 
-                    var tempRow = {};
-                    tempRow.year = "" + currentYear;
-                    tempRow.age = data[j].age + 1;
-                    tempRow.sex = data[j].sex;
-                    tempRow.people = data[j].people;
+                        var tempRow = {};
+                        tempRow.year = "" + currentYear;
+                        tempRow.age = data[j].age + 1;
+                        tempRow.sex = data[j].sex;
+                        tempRow.people = data[j].people;
 
-                    // dont push in information for the over 90s ...
-                    if (tempRow.age <= numberOfBins) {
-                        tempData.push(tempRow);
-                    }
+                        // dont push in information for the over 90s ...
+                        if (tempRow.age <= numberOfBins) {
+                            tempData.push(tempRow);
+                        }
                     }
 
                     // Now do the births and deaths and wot not HERE HERE HERE ...
@@ -776,198 +683,26 @@
 
                     //__ now insert the updated data into the new array
                     tempData.forEach(function (val) {
-                    newData.push(val);
-                    data.push(val);
+                        newData.push(val);
+                        data.push(val);
                     });
 
-                    }
+                }
 
-                    return newData;
-                    }
-
-
-                    //==
-                    function ApplyBirths(data) {
-
-                    var birthRate = document.getElementById("BirthRate").value * 1; // for Afghanistan ...
-                    var totalM, totalF, newM, newF;
-                    totalM = totalF = newM = newF = 0;
-
-                    //alert(totalM);
-
-                    data.forEach(function (val) {
-
-                    if (isNaN(val.people)) {
-                    alert("People is NaN for year:" + val.year + " age:" + val.age + " sex:" + val.sex);
-                    }
-
-                    if (val.sex == 1) {
-                    //                    alert(val.people);
-                    totalM += val.people;
-                    } else if (val.sex == 2) {
-                    totalF += val.people;
-                    }
-                    });
+                return newData;
+            }
 
 
-                    newM = Math.round(totalM * birthRate / 100);
-                    newF = Math.round(totalF * birthRate / 100);
+            //==
+            function ApplyBirths(data) {
 
-                    //            alert(totalM + "   " + newM);
+                var birthRate = document.getElementById("BirthRate").value * 1; // for Afghanistan ...
+                var totalM, totalF, newM, newF;
+                totalM = totalF = newM = newF = 0;
 
-                    data.forEach(function (val) {
-                    if (val.age == 0) {
-                    if (val.sex == 1) {
-                        val.people = newM;
-                    } else if (val.sex == 2) {
-                        val.people = newF;
-                    }
-                    }
-                    });
+                //alert(totalM);
 
-                    return data;
-                    }
-
-
-                    //==
-                    function ApplyDeaths(data) {
-
-                    var deathRate = document.getElementById("DeathRate").value * 1; // for Afghanistan ... still might be a bit low...
-                    var totalM, totalF, newM, newF, totalDied, year;
-                    totalM = totalF = newM = newF = totalDied = year = 0;
-
-                    data.forEach(function (val) {
-
-                    year = val.year;
-
-                    if (isNaN(val.people)) {
-                    alert("People is NaN for year:" + val.year + " age:" + val.age + " sex:" + val.sex);
-                    }
-
-                    if (val.sex == 1) {
-                    //                    alert(val.people);
-                    totalM += val.people;
-                    } else if (val.sex == 2) {
-                    totalF += val.people;
-                    }
-                    });
-
-                    newM = Math.round(totalM * deathRate / 100);
-                    newF = Math.round(totalF * deathRate / 100);
-
-                    //            alert(totalM + "   " + newM);
-
-                    // now apply this on a sliding scale around the average life expectancy (60.5 for AFG and 66.4 for PAK) ...
-                    data.forEach(function (val) {
-
-                    // get the death risk using the age ...
-                    var deathRiskPercent = deathRiskWeightings[val.age];
-                    var estimatedNumDied = 0;
-                    if (val.sex == 1) {
-                    estimatedNumDied = newM * deathRiskPercent;
-                    totalDied += estimatedNumDied;
-                    } else if (val.sex == 2) {
-                    // two minuses should make a plus!!!
-                    estimatedNumDied = newF * deathRiskPercent;
-                    totalDied += estimatedNumDied * -1;
-                    }
-
-                    val.people = (Math.abs(val.people) < Math.abs(estimatedNumDied)) ? 0 : Math.round(val.people - estimatedNumDied);
-
-                    });
-
-                    var tempSummaryDeath = {};
-                    tempSummaryDeath.year = year;
-                    tempSummaryDeath.people = Math.round(totalDied);
-                    summaryDeath.push(tempSummaryDeath);
-
-                    return data;
-                    }
-
-
-                    //== E.g. due to increases in individually recognised refugees
-                    function ApplyPopulationIncrease(data) {
-
-                    var popIncreaseTotal = document.getElementById("PopIncrease").value * 1; // E.g. New Recognitions ...
-                    // because this is m / f - we need to divide the popDecreaseTotal by 2 ...
-                    var popIncreaseTotalM = popIncreaseTotal * popIncreasePercentMale;
-                    var popIncreaseTotalF = popIncreaseTotal - popIncreaseTotalM;
-
-                    // now go through and apply this popIncrease on a sliding scale using the weightings ...
-                    data.forEach(function (val) {
-
-                    // get the pop increase using the gender segregated ages ...
-                    var popIncreasePercent = 0;
-                    var popIncreaseNum = 0;
-
-                    if (val.sex == 1) {
-                    popIncreasePercent = popIncreaseProfileMale[val.age];
-                    popIncreaseNum = popIncreaseTotalM * popIncreasePercent;
-                    } else if (val.sex == 2) {
-                    // two minuses should make a plus!!!
-                    popIncreasePercent = popIncreaseProfileFemale[val.age];
-                    popIncreaseNum = popIncreaseTotalF * popIncreasePercent * -1;
-                    }
-
-                    val.people = Math.round(val.people + popIncreaseNum);
-
-                    });
-
-                    return data;
-                    }
-
-                    //== E.g. due to voluntary repatriation
-                    function ApplyPopulationDecrease(data) {
-
-                    var popDecreaseTotal = document.getElementById("PopDecrease").value * 1; // Voluntary Repatriation Action ...
-                    // because this is m / f - we need to divide the popDecreaseTotal by 2 ...
-                    var popDecreaseTotalM = popDecreaseTotal * repatriationPercentMale;
-                    var popDecreaseTotalF = popDecreaseTotal - popDecreaseTotalM;
-
-                    var totalM, totalF;
-                    totalM = totalF = 0;
-
-                    // now go through and apply this popDecrease on a sliding scale using the weightings ...
-                    data.forEach(function (val) {
-
-                    // get the pop decrease using the gender segregated ages ...
-                    var popDecreasePercent = 0;
-                    var popDecreaseNum = 0;
-
-                    if (val.sex == 1) {
-                    popDecreasePercent = repatriationProfileMale[val.age];
-                    popDecreaseNum = popDecreaseTotalM * popDecreasePercent;
-                    } else if (val.sex == 2) {
-                    // two minuses should make a plus!!!
-                    popDecreasePercent = repatriationProfileFemale[val.age];
-                    popDecreaseNum = popDecreaseTotalF * popDecreasePercent * -1;
-                    }
-
-                    val.people = (Math.abs(val.people) < Math.abs(popDecreaseNum)) ? 0 : Math.round(val.people - popDecreaseNum);
-
-                    });
-
-                    return data;
-                    }
-
-
-                    //==
-                    function SetTotal(data, year) {
-
-
-
-                    var totalM, totalF, total, numBirths, numDeaths, percM, percF;
-                    totalM = totalF = total = numBirths = numDeaths = percM = percF = 0;
-
-                    data.forEach(function (val) {
-
-                    if (val.year == year) {
-
-                    if (val.age == 0) {
-                        numBirths += (val.sex == 1) ? val.people : val.people * -1;
-                    }
-
-                    //                    alert(val.age + "   " + val.sex + "  "+totalM + "   " + totalF);
+                data.forEach(function (val) {
 
                     if (isNaN(val.people)) {
                         alert("People is NaN for year:" + val.year + " age:" + val.age + " sex:" + val.sex);
@@ -979,511 +714,683 @@
                     } else if (val.sex == 2) {
                         totalF += val.people;
                     }
+                });
+
+
+                newM = Math.round(totalM * birthRate / 100);
+                newF = Math.round(totalF * birthRate / 100);
+
+                //            alert(totalM + "   " + newM);
+
+                data.forEach(function (val) {
+                    if (val.age == 0) {
+                        if (val.sex == 1) {
+                            val.people = newM;
+                        } else if (val.sex == 2) {
+                            val.people = newF;
+                        }
                     }
-                    });
+                });
 
-                    total = totalM + (-1 * totalF);
-                    percM = Math.round(totalM / total * 100);
-                    percF = 100 - percM;
+                return data;
+            }
 
-                    document.getElementById("MalePercent").innerHTML = percM;
-                    document.getElementById("FemalePercent").innerHTML = percF;
 
-                    document.getElementById("TotalPopulation").innerHTML = NumberWithCommas(totalM + (-1 * totalF));
-                    document.getElementById("NumberBirths").innerHTML = NumberWithCommas(numBirths);
+            //==
+            function ApplyDeaths(data) {
 
-                    summaryDeath.forEach(function (val) {
+                var deathRate = document.getElementById("DeathRate").value * 1; // for Afghanistan ... still might be a bit low...
+                var totalM, totalF, newM, newF, totalDied, year;
+                totalM = totalF = newM = newF = totalDied = year = 0;
+
+                data.forEach(function (val) {
+
+                    year = val.year;
+
+                    if (isNaN(val.people)) {
+                        alert("People is NaN for year:" + val.year + " age:" + val.age + " sex:" + val.sex);
+                    }
+
+                    if (val.sex == 1) {
+                        //                    alert(val.people);
+                        totalM += val.people;
+                    } else if (val.sex == 2) {
+                        totalF += val.people;
+                    }
+                });
+
+                newM = Math.round(totalM * deathRate / 100);
+                newF = Math.round(totalF * deathRate / 100);
+
+                //            alert(totalM + "   " + newM);
+
+                // now apply this on a sliding scale around the average life expectancy (60.5 for AFG and 66.4 for PAK) ...
+                data.forEach(function (val) {
+
+                    // get the death risk using the age ...
+                    var deathRiskPercent = deathRiskWeightings[val.age];
+                    var estimatedNumDied = 0;
+                    if (val.sex == 1) {
+                        estimatedNumDied = newM * deathRiskPercent;
+                        totalDied += estimatedNumDied;
+                    } else if (val.sex == 2) {
+                        // two minuses should make a plus!!!
+                        estimatedNumDied = newF * deathRiskPercent;
+                        totalDied += estimatedNumDied * -1;
+                    }
+
+                    val.people = (Math.abs(val.people) < Math.abs(estimatedNumDied)) ? 0 : Math.round(val.people - estimatedNumDied);
+
+                });
+
+                var tempSummaryDeath = {};
+                tempSummaryDeath.year = year;
+                tempSummaryDeath.people = Math.round(totalDied);
+                summaryDeath.push(tempSummaryDeath);
+
+                return data;
+            }
+
+
+            //== E.g. due to increases in individually recognised refugees
+            function ApplyPopulationIncrease(data) {
+
+                var popIncreaseTotal = document.getElementById("PopIncrease").value * 1; // E.g. New Recognitions ...
+                // because this is m / f - we need to divide the popDecreaseTotal by 2 ...
+                var popIncreaseTotalM = popIncreaseTotal * popIncreasePercentMale;
+                var popIncreaseTotalF = popIncreaseTotal - popIncreaseTotalM;
+
+                // now go through and apply this popIncrease on a sliding scale using the weightings ...
+                data.forEach(function (val) {
+
+                    // get the pop increase using the gender segregated ages ...
+                    var popIncreasePercent = 0;
+                    var popIncreaseNum = 0;
+
+                    if (val.sex == 1) {
+                        popIncreasePercent = popIncreaseProfileMale[val.age];
+                        popIncreaseNum = popIncreaseTotalM * popIncreasePercent;
+                    } else if (val.sex == 2) {
+                        // two minuses should make a plus!!!
+                        popIncreasePercent = popIncreaseProfileFemale[val.age];
+                        popIncreaseNum = popIncreaseTotalF * popIncreasePercent * -1;
+                    }
+
+                    val.people = Math.round(val.people + popIncreaseNum);
+
+                });
+
+                return data;
+            }
+
+            //== E.g. due to voluntary repatriation
+            function ApplyPopulationDecrease(data) {
+
+                var popDecreaseTotal = document.getElementById("PopDecrease").value * 1; // Voluntary Repatriation Action ...
+                // because this is m / f - we need to divide the popDecreaseTotal by 2 ...
+                var popDecreaseTotalM = popDecreaseTotal * repatriationPercentMale;
+                var popDecreaseTotalF = popDecreaseTotal - popDecreaseTotalM;
+
+                var totalM, totalF;
+                totalM = totalF = 0;
+
+                // now go through and apply this popDecrease on a sliding scale using the weightings ...
+                data.forEach(function (val) {
+
+                    // get the pop decrease using the gender segregated ages ...
+                    var popDecreasePercent = 0;
+                    var popDecreaseNum = 0;
+
+                    if (val.sex == 1) {
+                        popDecreasePercent = repatriationProfileMale[val.age];
+                        popDecreaseNum = popDecreaseTotalM * popDecreasePercent;
+                    } else if (val.sex == 2) {
+                        // two minuses should make a plus!!!
+                        popDecreasePercent = repatriationProfileFemale[val.age];
+                        popDecreaseNum = popDecreaseTotalF * popDecreasePercent * -1;
+                    }
+
+                    val.people = (Math.abs(val.people) < Math.abs(popDecreaseNum)) ? 0 : Math.round(val.people - popDecreaseNum);
+
+                });
+
+                return data;
+            }
+
+
+            //==
+            function SetTotal(data, year) {
+
+
+
+                var totalM, totalF, total, numBirths, numDeaths, percM, percF;
+                totalM = totalF = total = numBirths = numDeaths = percM = percF = 0;
+
+                data.forEach(function (val) {
+
                     if (val.year == year) {
-                    document.getElementById("NumberDeaths").innerHTML = NumberWithCommas(val.people);
+
+                        if (val.age == 0) {
+                            numBirths += (val.sex == 1) ? val.people : val.people * -1;
+                        }
+
+                        //                    alert(val.age + "   " + val.sex + "  "+totalM + "   " + totalF);
+
+                        if (isNaN(val.people)) {
+                            alert("People is NaN for year:" + val.year + " age:" + val.age + " sex:" + val.sex);
+                        }
+
+                        if (val.sex == 1) {
+                            //                    alert(val.people);
+                            totalM += val.people;
+                        } else if (val.sex == 2) {
+                            totalF += val.people;
+                        }
                     }
-                    });
+                });
+
+                total = totalM + (-1 * totalF);
+                percM = Math.round(totalM / total * 100);
+                percF = 100 - percM;
+
+                document.getElementById("MalePercent").innerHTML = percM;
+                document.getElementById("FemalePercent").innerHTML = percF;
+
+                document.getElementById("TotalPopulation").innerHTML = NumberWithCommas(totalM + (-1 * totalF));
+                document.getElementById("NumberBirths").innerHTML = NumberWithCommas(numBirths);
+
+                summaryDeath.forEach(function (val) {
+                    if (val.year == year) {
+                        document.getElementById("NumberDeaths").innerHTML = NumberWithCommas(val.people);
                     }
+                });
+            }
 
 
-                    // The % risk of dying by age group 0,1,2,3 ...
-                    var deathRiskWeightings = [
-                    0.05027,
-                    0.02371,
-                    0.01233,
-                    0.00474,
-                    0.00125,
-                    0.00001,
-                    0.00002,
-                    0.00003,
-                    0.00004,
-                    0.00006,
-                    0.00008,
-                    0.00010,
-                    0.00014,
-                    0.00017,
-                    0.00022,
-                    0.00026,
-                    0.00032,
-                    0.00039,
-                    0.00046,
-                    0.00054,
-                    0.00063,
-                    0.00073,
-                    0.00083,
-                    0.00095,
-                    0.00108,
-                    0.00122,
-                    0.00138,
-                    0.00154,
-                    0.00172,
-                    0.00191,
-                    0.00212,
-                    0.00234,
-                    0.00257,
-                    0.00282,
-                    0.00308,
-                    0.00336,
-                    0.00366,
-                    0.00397,
-                    0.00430,
-                    0.00465,
-                    0.00502,
-                    0.00540,
-                    0.00581,
-                    0.00623,
-                    0.00668,
-                    0.00714,
-                    0.00763,
-                    0.00814,
-                    0.00867,
-                    0.00922,
-                    0.00980,
-                    0.01040,
-                    0.01102,
-                    0.01167,
-                    0.01234,
-                    0.01304,
-                    0.01377,
-                    0.01452,
-                    0.01529,
-                    0.01610,
-                    0.01693,
-                    0.01779,
-                    0.01868,
-                    0.01960,
-                    0.02055,
-                    0.01435,
-                    0.01502,
-                    0.01572,
-                    0.01643,
-                    0.01717,
-                    0.01536,
-                    0.01603,
-                    0.01672,
-                    0.01742,
-                    0.01815,
-                    0.01890,
-                    0.01966,
-                    0.02045,
-                    0.02126,
-                    0.02208,
-                    0.02293,
-                    0.02380,
-                    0.02470,
-                    0.02561,
-                    0.02655,
-                    0.02751,
-                    0.02849,
-                    0.02950,
-                    0.03052,
-                    0.03158,
-                    0.03265
-                    ];
+            // The % risk of dying by age group 0,1,2,3 ...
+            var deathRiskWeightings = [
+                0.05027,
+                0.02371,
+                0.01233,
+                0.00474,
+                0.00125,
+                0.00001,
+                0.00002,
+                0.00003,
+                0.00004,
+                0.00006,
+                0.00008,
+                0.00010,
+                0.00014,
+                0.00017,
+                0.00022,
+                0.00026,
+                0.00032,
+                0.00039,
+                0.00046,
+                0.00054,
+                0.00063,
+                0.00073,
+                0.00083,
+                0.00095,
+                0.00108,
+                0.00122,
+                0.00138,
+                0.00154,
+                0.00172,
+                0.00191,
+                0.00212,
+                0.00234,
+                0.00257,
+                0.00282,
+                0.00308,
+                0.00336,
+                0.00366,
+                0.00397,
+                0.00430,
+                0.00465,
+                0.00502,
+                0.00540,
+                0.00581,
+                0.00623,
+                0.00668,
+                0.00714,
+                0.00763,
+                0.00814,
+                0.00867,
+                0.00922,
+                0.00980,
+                0.01040,
+                0.01102,
+                0.01167,
+                0.01234,
+                0.01304,
+                0.01377,
+                0.01452,
+                0.01529,
+                0.01610,
+                0.01693,
+                0.01779,
+                0.01868,
+                0.01960,
+                0.02055,
+                0.01435,
+                0.01502,
+                0.01572,
+                0.01643,
+                0.01717,
+                0.01536,
+                0.01603,
+                0.01672,
+                0.01742,
+                0.01815,
+                0.01890,
+                0.01966,
+                0.02045,
+                0.02126,
+                0.02208,
+                0.02293,
+                0.02380,
+                0.02470,
+                0.02561,
+                0.02655,
+                0.02751,
+                0.02849,
+                0.02950,
+                0.03052,
+                0.03158,
+                0.03265
+                ];
 
 
-                    // The percentage repatriating that are male ...
-                    var repatriationPercentMale = 0.4896;
+            // The percentage repatriating that are male ...
+            var repatriationPercentMale = 0.4896;
 
-                    // %repatriating by age starting at 0
-                    var repatriationProfileMale = [
-                    0.02976255,
-                    0.04976536,
-                    0.04451131,
-                    0.04037979,
-                    0.04119050,
-                    0.04044215,
-                    0.03498542,
-                    0.02951310,
-                    0.03008996,
-                    0.03205438,
-                    0.03419030,
-                    0.03486070,
-                    0.03294305,
-                    0.03080713,
-                    0.03216351,
-                    0.02715892,
-                    0.02424346,
-                    0.02159305,
-                    0.01933241,
-                    0.01841256,
-                    0.01585569,
-                    0.01538797,
-                    0.01423427,
-                    0.00966620,
-                    0.01231661,
-                    0.01209835,
-                    0.01173976,
-                    0.01220748,
-                    0.01097582,
-                    0.01016511,
-                    0.00821627,
-                    0.00996243,
-                    0.01169299,
-                    0.00935439,
-                    0.00926085,
-                    0.00866840,
-                    0.00866840,
-                    0.00774855,
-                    0.00749910,
-                    0.00653248,
-                    0.00606476,
-                    0.00576854,
-                    0.00590886,
-                    0.00555027,
-                    0.00561263,
-                    0.00547232,
-                    0.00536318,
-                    0.00484869,
-                    0.00470838,
-                    0.00433420,
-                    0.00431861,
-                    0.00408475,
-                    0.00427184,
-                    0.00414711,
-                    0.00427184,
-                    0.00414711,
-                    0.00403798,
-                    0.00375735,
-                    0.00366380,
-                    0.00342994,
-                    0.00339876,
-                    0.00277514,
-                    0.00275955,
-                    0.00268159,
-                    0.00263482,
-                    0.00252569,
-                    0.00279073,
-                    0.00254128,
-                    0.00249450,
-                    0.00240096,
-                    0.00238537,
-                    0.00169938,
-                    0.00151229,
-                    0.00137198,
-                    0.00137198,
-                    0.00130961,
-                    0.00121607,
-                    0.00110694,
-                    0.00110694,
-                    0.00107575,
-                    0.00104457,
-                    0.00068599,
-                    0.00043654,
-                    0.00032740,
-                    0.00032740,
-                    0.00031181,
-                    0.00032740,
-                    0.00028063,
-                    0.00024945,
-                    0.00021827,
-                    0.00021827
-                    ];
+            // %repatriating by age starting at 0
+            var repatriationProfileMale = [
+                0.02976255,
+                0.04976536,
+                0.04451131,
+                0.04037979,
+                0.04119050,
+                0.04044215,
+                0.03498542,
+                0.02951310,
+                0.03008996,
+                0.03205438,
+                0.03419030,
+                0.03486070,
+                0.03294305,
+                0.03080713,
+                0.03216351,
+                0.02715892,
+                0.02424346,
+                0.02159305,
+                0.01933241,
+                0.01841256,
+                0.01585569,
+                0.01538797,
+                0.01423427,
+                0.00966620,
+                0.01231661,
+                0.01209835,
+                0.01173976,
+                0.01220748,
+                0.01097582,
+                0.01016511,
+                0.00821627,
+                0.00996243,
+                0.01169299,
+                0.00935439,
+                0.00926085,
+                0.00866840,
+                0.00866840,
+                0.00774855,
+                0.00749910,
+                0.00653248,
+                0.00606476,
+                0.00576854,
+                0.00590886,
+                0.00555027,
+                0.00561263,
+                0.00547232,
+                0.00536318,
+                0.00484869,
+                0.00470838,
+                0.00433420,
+                0.00431861,
+                0.00408475,
+                0.00427184,
+                0.00414711,
+                0.00427184,
+                0.00414711,
+                0.00403798,
+                0.00375735,
+                0.00366380,
+                0.00342994,
+                0.00339876,
+                0.00277514,
+                0.00275955,
+                0.00268159,
+                0.00263482,
+                0.00252569,
+                0.00279073,
+                0.00254128,
+                0.00249450,
+                0.00240096,
+                0.00238537,
+                0.00169938,
+                0.00151229,
+                0.00137198,
+                0.00137198,
+                0.00130961,
+                0.00121607,
+                0.00110694,
+                0.00110694,
+                0.00107575,
+                0.00104457,
+                0.00068599,
+                0.00043654,
+                0.00032740,
+                0.00032740,
+                0.00031181,
+                0.00032740,
+                0.00028063,
+                0.00024945,
+                0.00021827,
+                0.00021827
+                ];
 
-                    // %repatriating by age starting at 0
-                    var repatriationProfileFemale = [
-                    0.02854034,
-                    0.04655876,
-                    0.04170020,
-                    0.03786998,
-                    0.03797431,
-                    0.03451668,
-                    0.03080569,
-                    0.02715431,
-                    0.02889803,
-                    0.03098453,
-                    0.03380131,
-                    0.03187874,
-                    0.03043310,
-                    0.02721393,
-                    0.02892784,
-                    0.02529136,
-                    0.02286208,
-                    0.01970252,
-                    0.01785448,
-                    0.01815255,
-                    0.01743718,
-                    0.01755641,
-                    0.02000060,
-                    0.01248919,
-                    0.01640883,
-                    0.01521655,
-                    0.01408388,
-                    0.01605115,
-                    0.01374110,
-                    0.01108826,
-                    0.00839071,
-                    0.01280217,
-                    0.01651316,
-                    0.01175892,
-                    0.01163969,
-                    0.01101374,
-                    0.01065606,
-                    0.00946377,
-                    0.00885272,
-                    0.00777967,
-                    0.00730275,
-                    0.00700468,
-                    0.00701958,
-                    0.00675132,
-                    0.00698978,
-                    0.00690035,
-                    0.00690035,
-                    0.00670661,
-                    0.00663209,
-                    0.00614027,
-                    0.00600614,
-                    0.00494799,
-                    0.00463501,
-                    0.00426242,
-                    0.00424752,
-                    0.00412829,
-                    0.00391964,
-                    0.00339801,
-                    0.00327879,
-                    0.00309994,
-                    0.00301052,
-                    0.00201198,
-                    0.00174372,
-                    0.00160959,
-                    0.00159468,
-                    0.00157978,
-                    0.00166920,
-                    0.00150526,
-                    0.00143074,
-                    0.00137113,
-                    0.00135623,
-                    0.00090912,
-                    0.00068556,
-                    0.00059614,
-                    0.00062595,
-                    0.00056634,
-                    0.00055143,
-                    0.00046201,
-                    0.00044711,
-                    0.00040240,
-                    0.00040240,
-                    0.00023846,
-                    0.00016394,
-                    0.00011923,
-                    0.00011923,
-                    0.00011923,
-                    0.00011923,
-                    0.00005961,
-                    0.00007452,
-                    0.00005961,
-                    0.00005961
-                    ];
-
-
-                    // Newly registered / mandated refugees ...
-                    var popIncreasePercentMale = 0.4419;
-
-                    var popIncreaseProfileMale = [
-                    0.01312155,
-                    0.01761050,
-                    0.02002762,
-                    0.01726519,
-                    0.02762431,
-                    0.03004144,
-                    0.02796961,
-                    0.03280387,
-                    0.02762431,
-                    0.02693370,
-                    0.02796961,
-                    0.03522099,
-                    0.03798343,
-                    0.03487569,
-                    0.03383978,
-                    0.04350829,
-                    0.03660221,
-                    0.04178177,
-                    0.02866022,
-                    0.03004144,
-                    0.02175414,
-                    0.02451657,
-                    0.02520718,
-                    0.02244475,
-                    0.01657459,
-                    0.02589779,
-                    0.01933702,
-                    0.02071823,
-                    0.01208564,
-                    0.01726519,
-                    0.01277624,
-                    0.01519337,
-                    0.01243094,
-                    0.01001381,
-                    0.01070442,
-                    0.00828729,
-                    0.00794199,
-                    0.00794199,
-                    0.00759669,
-                    0.00759669,
-                    0.00517956,
-                    0.00379834,
-                    0.00517956,
-                    0.00483425,
-                    0.00414365,
-                    0.00345304,
-                    0.00414365,
-                    0.00345304,
-                    0.00379834,
-                    0.00552486,
-                    0.00138122,
-                    0.00207182,
-                    0.00345304,
-                    0.00172652,
-                    0.00448895,
-                    0.00207182,
-                    0.00207182,
-                    0.00276243,
-                    0.00276243,
-                    0.00483425,
-                    0.00276243,
-                    0.00345304,
-                    0.00172652,
-                    0.00103591,
-                    0.00103591,
-                    0.00069061,
-                    0.00241713,
-                    0.00172652,
-                    0.00207182,
-                    0.00103591,
-                    0.00103591,
-                    0.00310773,
-                    0.00207182,
-                    0.00103591,
-                    0.00103591,
-                    0.00034530,
-                    0.00103591,
-                    0.00034530,
-                    0.00103591,
-                    0.00069061,
-                    0.00000000,
-                    0.00034530,
-                    0.00034530,
-                    0.00034530,
-                    0.00034530,
-                    0.00000000
-                    ];
-
-                    var popIncreaseProfileFemale = [
-                    0.00683620,
-                    0.01203172,
-                    0.01285206,
-                    0.01257862,
-                    0.01585999,
-                    0.01695379,
-                    0.02625103,
-                    0.02324310,
-                    0.02378999,
-                    0.01941482,
-                    0.02543068,
-                    0.02378999,
-                    0.02351654,
-                    0.02433689,
-                    0.02515723,
-                    0.03062620,
-                    0.02652447,
-                    0.02871206,
-                    0.03007930,
-                    0.03117309,
-                    0.02461034,
-                    0.02871206,
-                    0.02214930,
-                    0.02378999,
-                    0.02351654,
-                    0.02378999,
-                    0.02105551,
-                    0.01804758,
-                    0.01640689,
-                    0.01996172,
-                    0.01640689,
-                    0.01585999,
-                    0.01695379,
-                    0.01394586,
-                    0.01886792,
-                    0.01148482,
-                    0.01367241,
-                    0.01257862,
-                    0.01066448,
-                    0.01722724,
-                    0.00765655,
-                    0.01285206,
-                    0.01011758,
-                    0.00902379,
-                    0.01066448,
-                    0.00765655,
-                    0.00820345,
-                    0.01148482,
-                    0.00601586,
-                    0.01175827,
-                    0.00601586,
-                    0.00656276,
-                    0.00519552,
-                    0.00464862,
-                    0.00875034,
-                    0.00437517,
-                    0.00628931,
-                    0.00574241,
-                    0.00273448,
-                    0.00683620,
-                    0.00246103,
-                    0.00273448,
-                    0.00300793,
-                    0.00355483,
-                    0.00355483,
-                    0.00328138,
-                    0.00136724,
-                    0.00246103,
-                    0.00136724,
-                    0.00273448,
-                    0.00109379,
-                    0.00273448,
-                    0.00082034,
-                    0.00164069,
-                    0.00082034,
-                    0.00000000,
-                    0.00054690,
-                    0.00109379,
-                    0.00054690,
-                    0.00109379,
-                    0.00000000,
-                    0.00027345,
-                    0.00027345,
-                    0.00054690,
-                    0.00000000,
-                    0.00054690
-                    ];
+            // %repatriating by age starting at 0
+            var repatriationProfileFemale = [
+                0.02854034,
+                0.04655876,
+                0.04170020,
+                0.03786998,
+                0.03797431,
+                0.03451668,
+                0.03080569,
+                0.02715431,
+                0.02889803,
+                0.03098453,
+                0.03380131,
+                0.03187874,
+                0.03043310,
+                0.02721393,
+                0.02892784,
+                0.02529136,
+                0.02286208,
+                0.01970252,
+                0.01785448,
+                0.01815255,
+                0.01743718,
+                0.01755641,
+                0.02000060,
+                0.01248919,
+                0.01640883,
+                0.01521655,
+                0.01408388,
+                0.01605115,
+                0.01374110,
+                0.01108826,
+                0.00839071,
+                0.01280217,
+                0.01651316,
+                0.01175892,
+                0.01163969,
+                0.01101374,
+                0.01065606,
+                0.00946377,
+                0.00885272,
+                0.00777967,
+                0.00730275,
+                0.00700468,
+                0.00701958,
+                0.00675132,
+                0.00698978,
+                0.00690035,
+                0.00690035,
+                0.00670661,
+                0.00663209,
+                0.00614027,
+                0.00600614,
+                0.00494799,
+                0.00463501,
+                0.00426242,
+                0.00424752,
+                0.00412829,
+                0.00391964,
+                0.00339801,
+                0.00327879,
+                0.00309994,
+                0.00301052,
+                0.00201198,
+                0.00174372,
+                0.00160959,
+                0.00159468,
+                0.00157978,
+                0.00166920,
+                0.00150526,
+                0.00143074,
+                0.00137113,
+                0.00135623,
+                0.00090912,
+                0.00068556,
+                0.00059614,
+                0.00062595,
+                0.00056634,
+                0.00055143,
+                0.00046201,
+                0.00044711,
+                0.00040240,
+                0.00040240,
+                0.00023846,
+                0.00016394,
+                0.00011923,
+                0.00011923,
+                0.00011923,
+                0.00011923,
+                0.00005961,
+                0.00007452,
+                0.00005961,
+                0.00005961
+                ];
 
 
-                    //==
-                    function DoPlayPause() {
+            // Newly registered / mandated refugees ...
+            var popIncreasePercentMale = 0.4419;
 
-                    if (uiIsPlaying) {
+            var popIncreaseProfileMale = [
+                0.01312155,
+                0.01761050,
+                0.02002762,
+                0.01726519,
+                0.02762431,
+                0.03004144,
+                0.02796961,
+                0.03280387,
+                0.02762431,
+                0.02693370,
+                0.02796961,
+                0.03522099,
+                0.03798343,
+                0.03487569,
+                0.03383978,
+                0.04350829,
+                0.03660221,
+                0.04178177,
+                0.02866022,
+                0.03004144,
+                0.02175414,
+                0.02451657,
+                0.02520718,
+                0.02244475,
+                0.01657459,
+                0.02589779,
+                0.01933702,
+                0.02071823,
+                0.01208564,
+                0.01726519,
+                0.01277624,
+                0.01519337,
+                0.01243094,
+                0.01001381,
+                0.01070442,
+                0.00828729,
+                0.00794199,
+                0.00794199,
+                0.00759669,
+                0.00759669,
+                0.00517956,
+                0.00379834,
+                0.00517956,
+                0.00483425,
+                0.00414365,
+                0.00345304,
+                0.00414365,
+                0.00345304,
+                0.00379834,
+                0.00552486,
+                0.00138122,
+                0.00207182,
+                0.00345304,
+                0.00172652,
+                0.00448895,
+                0.00207182,
+                0.00207182,
+                0.00276243,
+                0.00276243,
+                0.00483425,
+                0.00276243,
+                0.00345304,
+                0.00172652,
+                0.00103591,
+                0.00103591,
+                0.00069061,
+                0.00241713,
+                0.00172652,
+                0.00207182,
+                0.00103591,
+                0.00103591,
+                0.00310773,
+                0.00207182,
+                0.00103591,
+                0.00103591,
+                0.00034530,
+                0.00103591,
+                0.00034530,
+                0.00103591,
+                0.00069061,
+                0.00000000,
+                0.00034530,
+                0.00034530,
+                0.00034530,
+                0.00034530,
+                0.00000000
+                ];
+
+            var popIncreaseProfileFemale = [
+                0.00683620,
+                0.01203172,
+                0.01285206,
+                0.01257862,
+                0.01585999,
+                0.01695379,
+                0.02625103,
+                0.02324310,
+                0.02378999,
+                0.01941482,
+                0.02543068,
+                0.02378999,
+                0.02351654,
+                0.02433689,
+                0.02515723,
+                0.03062620,
+                0.02652447,
+                0.02871206,
+                0.03007930,
+                0.03117309,
+                0.02461034,
+                0.02871206,
+                0.02214930,
+                0.02378999,
+                0.02351654,
+                0.02378999,
+                0.02105551,
+                0.01804758,
+                0.01640689,
+                0.01996172,
+                0.01640689,
+                0.01585999,
+                0.01695379,
+                0.01394586,
+                0.01886792,
+                0.01148482,
+                0.01367241,
+                0.01257862,
+                0.01066448,
+                0.01722724,
+                0.00765655,
+                0.01285206,
+                0.01011758,
+                0.00902379,
+                0.01066448,
+                0.00765655,
+                0.00820345,
+                0.01148482,
+                0.00601586,
+                0.01175827,
+                0.00601586,
+                0.00656276,
+                0.00519552,
+                0.00464862,
+                0.00875034,
+                0.00437517,
+                0.00628931,
+                0.00574241,
+                0.00273448,
+                0.00683620,
+                0.00246103,
+                0.00273448,
+                0.00300793,
+                0.00355483,
+                0.00355483,
+                0.00328138,
+                0.00136724,
+                0.00246103,
+                0.00136724,
+                0.00273448,
+                0.00109379,
+                0.00273448,
+                0.00082034,
+                0.00164069,
+                0.00082034,
+                0.00000000,
+                0.00054690,
+                0.00109379,
+                0.00054690,
+                0.00109379,
+                0.00000000,
+                0.00027345,
+                0.00027345,
+                0.00054690,
+                0.00000000,
+                0.00054690
+                ];
+
+
+            //==
+            function DoPlayPause() {
+
+                if (uiIsPlaying) {
                     window.clearInterval(uiIntervalID);
                     // update the image src ....
                     document.getElementById("IconPlay").src = "img/icon_play.png";
 
-                    } else {
+                } else {
                     // reset the function if required ...
                     if (uiNumbersChanged == true) {
-                    uiResetFunction();
+                        uiResetFunction();
                     }
 
                     uiStartFunction();
@@ -1493,123 +1400,42 @@
                     // update the image src ....
                     document.getElementById("IconPlay").src = "img/icon_pause.png";
 
-                    }
+                }
 
-                    uiIsPlaying = !uiIsPlaying;
-                    }
+                uiIsPlaying = !uiIsPlaying;
+            }
 
-                    //==
-                    function DoReset() {
-                    window.clearInterval(uiIntervalID);
-                    uiIsPlaying = false;
-                    //            uiIsLoop = false;
-                    document.getElementById("IconPlay").src = "img/icon_play.png";
+            //==
+            function DoReset() {
+                window.clearInterval(uiIntervalID);
+                uiIsPlaying = false;
+                //            uiIsLoop = false;
+                document.getElementById("IconPlay").src = "img/icon_play.png";
 
-                    uiResetFunction();
-                    }
+                uiResetFunction();
+            }
 
-                    //==
-                    function DoLoop() {
-                    uiIsLoop = !uiIsLoop;
-                    // all we need to do is to toggle the looping action ...
-                    document.getElementById("IconLoop").src = (uiIsLoop) ? "img/icon_loop.png" : "img/icon_loop_grey.png";
+            //==
+            function DoLoop() {
+                uiIsLoop = !uiIsLoop;
+                // all we need to do is to toggle the looping action ...
+                document.getElementById("IconLoop").src = (uiIsLoop) ? "img/icon_loop.png" : "img/icon_loop_grey.png";
 
-                    }
-
-
-                    //==
-                    function UseDefaultValues() {
-                    document.getElementById("BirthRate").value = 3.5;
-                    document.getElementById("DeathRate").value = 0.8;
-                    document.getElementById("PopDecrease").value = 40000;
-                    document.getElementById("PopIncrease").value = 5000;
-                    uiNumbersChanged = true;
-                    }
-
-                    </script>
-                </div>
-            </div>
-
-            <div class="Footer" id="SiteFooter">
-                <table border="0" width="100%">
-                    <tbody>
-                        <tr>
-                            <td class="FooterText" style=
-                            "width:33%; height: 55px; vertical-align: middle;">
-                            &nbsp;&nbsp;&nbsp;&nbsp;</td>
-
-                            <td style="width:33%;">
-                                <div style="text-align: center;">
-                                    <span id="HitCounter" style=
-                                    "color: #ffffff; padding:5px;">32,504
-                                    visits</span>
-                                </div>
-                            </td>
-
-                            <td style="width:33%;">
-                                <div class="FooterText" style=
-                                "float:right; margin-right:20px; vertical-align: middle;">
-                                Version <span id=
-                                "SoftwareVersionLabel">0.5</span>
-                                    (<span id="SoftwareVersionDate">Jun
-                                    2015</span>), Data Visualisation<br>
-                                    Email <a href=
-                                    "mailto:unhcr.pakimteam@gmail.com">unhcr.pakimteam@gmail.com</a>
-                                    for more info
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div><!-- Requires the Easy Modal JS script ... -->
+            }
 
 
-            <div class="BodyInfoWrapper SessionWarningWrapper" id="SessDiv"
-            style=
-            "display: none; position: fixed; z-index: 2001; left: 50%; top: 50%;">
-            <div class="BodyInfoHeader">
-                    <div class="InfoClassWarning" style=
-                    "margin: 0px 0px 0px 0px; font-size:smaller;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Session is
-                        about to expire!
-                    </div>
-                </div>
+            //==
+            function UseDefaultValues() {
+                document.getElementById("BirthRate").value = 3.5;
+                document.getElementById("DeathRate").value = 0.8;
+                document.getElementById("PopDecrease").value = 40000;
+                document.getElementById("PopIncrease").value = 5000;
+                uiNumbersChanged = true;
+            }
 
-                <div class="BodyInfoContent"><br>
+        </script>
 
-                <div class="BodyInfoText">
-                    You will be signed out in <b><span id=
-                    "CountDown">120</span></b> seconds. Do you want to stay
-                    signed in?
-                </div><br>
-
-                <div class="BodyInfoText" style="margin-left:100px;">
-                    <a href="javascript:%20SessKeepAlive();">Yes, please keep
-                    me signed in</a><br>
-                    <br>
-                    <a href="javascript:%20SessLogout();">No, sign me
-                    out</a><br>
-                    <br>
-                </div>
-                <img src="img/Loading.gif"  style="position: absolute; top: 112px; left: 50px; width: 50px; height: 50px;"></div>
-            </div><script type="text/javascript">
-
-            $("#SessDiv").easyModal({
-            autoOpen: false,
-            overlayOpacity: 0.3,
-            overlayColor: "#333",
-            overlayClose: true,
-            closeOnEscape: true,
-            onClose: SessKeepAlivePoll
-            });
-
-            $(window).bind("beforeunload", SessKeepAliveFinish);
-            </script>
-        </div>
     </form>
-
-    <div class="lean-overlay" style=
-    "display: none; position: fixed; z-index: 2000; top: 0px; left: 0px; height: 100%; width: 100%; opacity: 0.3; background: rgb(51, 51, 51);">
-    </div>
 </body>
+
 </html>
