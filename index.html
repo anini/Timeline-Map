@@ -1,59 +1,82 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Week by Week Spread of Ebola in West Africa</title>
+        <title>Syria Population Estimation</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+            <!-- Bootstrap with Yeti them from bootswatch-->
+        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+        <link rel="stylesheet" href="css/bootswatch.min.css">
+        <link rel="stylesheet" href="css/font-humanitarian.css">
+
+
         <link rel="stylesheet" type="text/css" href="css/site.css"/>
+
         <script src="js/jquery.js"></script>
+
         <script src="js/d3.js" charset="utf-8"></script>
-        <script src="data/totalCasesAndDeaths.js"></script> 
+        <script src="data/totalCasesAndDeaths.js"></script>
         <script src="data/westafrica.js"></script>
         <script src="data/regions.js"></script>
         <script src="data/region_cases.js"></script>
         <script src="data/map_settings.js"></script>
         <script src="data/medical_centres_geo.js"></script>
         <script src="data/medical_centres.js"></script>
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-46399763-1']);
-            _gaq.push(['_trackPageview']);
 
-            (function() {
-                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-        </script>                
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <h3>Week by Week Spread of Ebola in West Africa</h3>                
+
+                <div class="col-lg-12">
+                    <h1>Syria Population Estimation: The Impact of War</h1>
+                </div>
             </div>
             <div class="row">
+                <div class="col-lg-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p>Press left or right to scroll through the weeks or click the graph.
+                               The map shows population number.</p>
+                            <p><span class="playPause paused"></span> &nbsp;Autoplay </p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                        <p>This data visualisation present the impact of 5 years of war on the syrian population. It shows:
+                        <ul>
+                            <li> Population extrapolation based on 2004 census <small>(source: <a href="http://www.cbssyr.sy/index-EN.htm">Syrian Central Bureau of Statistics</a>)</small></li>
+                            <li> Population Internally displaced <small>(source: <a href="http://www.humanitarianresponse.info/en/operations/syria">Office for the coordination of Humanitarian Affair - OCHA</a>)</small></li>
+                            <li> Refugee Population who left the country <small>(source: <a href="http://data.unhcr.org/syrianrefugees">United Nations High Commissionner for Refugees - UNHCR </a>)</small></li>
+                            <li> Population who died because of the war <small>(source: <a href="http://www.syrianshuhada.com/default.asp?lang=en">Syrian Shuhada</a>)</small></li>
+                        </ul>
+                        </p>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Population Size over time</h3>
                 <div id="bar_chart" class="col-lg-12"></div>
             </div>
+            
             <div class="row">
                 <div id="week" class="col-md-12"></div>
-            </div>                   
-            <div class="row">
-                <div class="col-lg-2">
-                    <p>Press left or right to scroll through the weeks or click the graph.
-                       The map shows number of cases in the last 3 week.</p>
-                    <p><span class="playPause paused"></span> &nbsp;Autoplay </p>
-                    <p>Please note that during the week ending 27 Oct Liberia revised its numbers hence the irregular spike.</p>    
-                    <p>Contact: <a href="https://twitter.com/Simon_B_Johnson">@simon_b_johnson</a>.
-                    <p>Data can be obtained from the HDX repository: <a href="https://data.hdx.rwlabs.org/dataset?q=ebola">Source</a>
-                </div>
-                <div class="col-lg-10">     
-                    <div class="row">
-                        <div id="map" class="col-md-12"></div>
-                    </div>
-                </div>    
             </div>
-        </div> 
+            
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="row">
+                        <h3>Population Pyramid</h3>
+                        <div  class="col-md-4"></div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div id="map" class="col-md-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="js/site.js"></script>
     </body>
 </html>

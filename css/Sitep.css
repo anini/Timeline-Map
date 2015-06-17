@@ -1,0 +1,1088 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+html, form 
+{
+        height:100%;
+}
+
+body   
+{
+    font-size: .80em;
+    font-family: Verdana;
+    margin: 0px;
+    padding: 0px;
+    color: #696969;
+    min-width: 920px;
+    height:100%;
+  }
+
+a:link, a:visited
+{
+    color: #2B4661;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+a:hover
+{
+    color: #DE9700;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+a:active
+{
+    color: #2B4661;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+table
+{
+	position: relative;	
+}
+
+
+td 
+{
+	position: relative;	
+}
+
+tr 
+{
+	position: relative;	
+}
+
+
+t5 
+{
+	position: relative;	
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #666666;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+}
+
+h1
+{
+    font-size: 1.6em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.myH1 
+{
+    font-size: 1.9em;
+    padding: 0px;
+    margin-left: 6px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    font-weight:bold;
+}
+
+h2
+{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3
+{
+    font-size: 1.2em;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.PageContainer {
+		min-height:100%;
+		position:relative;
+	}
+
+.Page
+{
+
+    background-color: #ffffff;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    border-width: 0px;
+    width:100%;
+    position: relative;
+}
+
+.Header
+{
+	margin: 0px;
+    padding: 0px;	
+    border-width: 0px;
+    width:100%;
+    position: relative;
+	background: #AFC6E9 url("../Images/HeaderMain.png") repeat-x;
+	height: 100%;
+
+}
+
+.Header2
+{
+	margin: 0px;
+    padding: 0px;	
+    border-width: 0px;
+    width:100%;
+    position: relative;
+	background: #ffdeae url("../Images/HeaderSub.png") repeat-x;    
+
+
+}
+
+
+.Header h1
+{
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    color: #ffffff;
+    border: none;
+    line-height: 2em;
+    font-size: 2em;
+}
+
+.main
+{
+    padding: 0px 0px 50px 0px;
+    margin: 12px 8px 8px 8px;
+    min-height: 320px;
+    position: relative;
+}
+
+.leftCol
+{
+    padding: 6px 0px;
+    margin: 12px 8px 8px 8px;
+    width: 200px;
+    min-height: 200px;
+}
+
+.Footer
+{
+    position: absolute; 
+    bottom: 0px;
+    left: 0px;
+    height: 60px;
+    
+    width: 100%;   
+    color: #4e5766;
+    margin: 0px;
+    padding: 8px 0px 4px 0px;
+    text-align: center;
+    line-height: normal;
+	background-image: url("../Images/FooterMain.png");
+    background-repeat: repeat-x;    
+}
+
+.FooterText
+{
+    color: #ffffff;    
+}
+
+.FooterText a:link, .FooterText a:visited
+{
+    color: #ffffff;    
+}
+
+.FooterText a:hover
+{
+    color: #DE9700;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+
+.Header2 a:link, .Header2 a:visited
+{
+    color: #2B4661;  
+}
+
+.Header2 a:hover
+{
+    color: #ffffff;    
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+
+
+
+
+/* Header Top   
+----------------------------------------------------------*/
+.HeaderTopLeft 
+{
+	position: relative;
+	float: left; 
+	top: 1px;
+	left: 10px; 
+	right: 10px;
+	padding: 3px;
+	vertical-align: middle;
+
+}
+
+.HeaderTopRight 
+{
+	position: relative;
+	float: right; 
+	top: 1px;
+	left: 10px; 
+	right: 10px;
+	padding: 3px;
+	vertical-align: middle;
+	margin-right: 10px;
+
+}
+
+
+.HeaderClusterIcons 
+{
+	position: relative;
+	float: right; 
+	top: 1px;
+	right:6px;
+	padding: 0px;
+}
+
+.HeaderLinks 
+{
+	position: relative;
+	top: 10px;
+}
+
+.HeaderFlag 
+{
+	position: relative;
+	top: 4px;
+}
+
+
+
+/* Header Images   
+----------------------------------------------------------*/
+.HeaderImageBanner
+{
+    
+	overflow:hidden;
+    width: 100%;   
+}
+
+.HeaderImageBox
+{
+    text-align: left;
+    width: 100%;   
+}
+
+/* Header bar - breadcrumbs and social media stuff  
+----------------------------------------------------------*/
+
+.PageTitle
+{
+    text-align: left;
+    width: 100%;
+    position: relative;    
+    padding: 0px;
+}
+
+.PageTitleSocialMedia
+{
+	position: relative;
+    text-align: left;
+    width: 100%;    
+    float: left;
+  
+}
+
+.PageTitleSocialMediaInner
+{
+	position: relative;
+    text-align: left;
+    float: left;
+    height: 27px;
+}
+
+.LinkedIn
+{
+	position: relative;
+	top: 1px;
+}
+
+.Twitter
+{
+	position: relative;
+	top: 2px;
+}
+
+
+.BreadCrumb 
+{
+	 margin-left:10px;
+	 margin-top:0px;
+	 top:0px;
+	 position: relative;
+	 float: left;
+	 color: #2B4661;
+}
+
+.HeaderTable
+{
+	width: 100%;
+	position: relative;
+	border-width:0px;
+	padding: 0;
+	margin: 0;
+}
+
+
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+}
+
+fieldset label.inline 
+{
+    display: inline;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input.textEntry 
+{
+    width: 520px;
+    border: 1px solid #ccc;
+}
+
+input.passwordEntry 
+{
+    width: 520px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+    width: 42%;
+}
+
+
+
+/* MISC  
+----------------------------------------------------------*/
+
+
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.SubHeading
+{
+	 font-weight: bold;	
+	 width: 100%;
+	 position: relative;
+	 background-color: #EFF4FB;
+	 color: #2B4661;
+	 padding:3px;
+}
+
+
+.TextBox
+{
+	 width: 480px;
+	
+}
+
+.TextBoxDisabled
+{
+	 width: 480px;
+	 background-color: #eeeeee;
+	 border: 1px solid #ccc;
+	
+}
+
+
+.TextBoxDDL
+{
+	 width: 484px;
+	
+}
+
+.TextBoxDDLDisabled
+{
+	 width: 484px;
+	background-color: #eeeeee;
+	border: 1px solid #ccc;
+}
+
+.TextBoxNarrow
+{
+	 width: 300px;
+	
+}
+
+
+.TextBoxFileSelect
+{
+    background-color: #eeeeee;
+    color: #2B4661;
+    font-weight: normal;
+    border: 1px solid #cccccc;
+    padding: 2px;
+    width: 140px;
+    cursor: pointer;
+}
+
+.TextBoxFileSelect:Hover
+{
+    background-color: #efefef;
+    color: #d77b0d;
+    font-weight: normal;
+    border: 1px solid #d77b0d;
+    padding: 2px;
+    width: 140px;
+    cursor: pointer;
+}
+
+
+.TextBoxFileDisplay
+{
+    width: 350px;
+}
+
+
+
+.SubContent
+{
+	margin-left: 10px;
+	position: relative;
+}
+
+.GoogleTranslateStuff
+{
+    color: #ffffff;
+    margin-left:6px;
+    width:200px;
+    text-align: center;
+    float: left;
+}
+
+.ErrorsOnForm 
+{
+	color: #d77b0d;
+	font-weight: bold;
+	width: 95%;
+}
+
+.ErrorsOnFormSummary 
+{
+	color: #d77b0d;
+	font-weight: bold;
+	width: 95%;
+	padding: 5px;
+	background: url("../Images/Icon_Notification_Warning.png") no-repeat 0% 0%;
+}
+
+
+.ErrorsOnFormDivOff 
+{
+	color: #d77b0d;
+	font-weight: bold;
+	width:100%; 
+}
+
+.ErrorsOnFormDivOn 
+{
+	color: red;
+	font-weight: bold;
+	width:100%; 
+	margin-left: 30px;
+}
+
+
+.HelpToolTip 
+{
+	color: #aaaaaa;
+	font-weight: bold;
+}
+
+.HelpToolTip:Hover 
+{
+	color: #d77b0d;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.InvisibleTextBox 
+{
+	color: white;
+	border-width: 0px;
+}
+
+
+.SummaryMargin 
+{
+	float:left; 
+	width:300px;
+}
+
+.SummaryContent 
+{
+	margin-left:300px;
+	font-weight: bold;
+}
+
+
+.HeaderPhoto 
+{
+	border: 3px solid #6D97BF;
+}
+
+
+.BodyInfoWrapper
+{
+    /* These will be overwritten by the BodyInfoWrapperClean on the default page */
+    margin-left:15px; 
+    margin-right:15px; 
+    margin-top:25px; 
+    margin-bottom:15px; 
+    background-color: #ffffff; /* BACFE4; adc2cc e0cebf d5d5d5*/
+    border-radius:20px 20px 20px 20px;
+    box-shadow: 4px 4px 3px #cccccc;        
+    border: 1px solid #d5d5d5;
+    position: relative;
+    overflow: hidden;
+}
+
+.BodyInfoWrapperClean 
+{
+    min-width: 500px; 
+    max-width: 1000px;    
+    margin: 40px auto;
+}
+
+
+.BodyInfoHeader
+{    
+    /*background-color: #93bacc;              #6499e8; */
+    background: #fafbfc url("../Images/HeaderBackground.png") repeat-x;    
+    border-radius: 0px 0px 0px 0px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #2B4661;
+}
+
+.BodyInfoContent
+{
+    margin-left:30px;
+    margin-right: 20px;
+
+}
+
+.BodyInfoContent2
+{
+    border-radius:20px 20px 20px 20px;
+    background-color: #ffffff;
+    width: 98%;
+
+}
+
+.BodyInfoText 
+{
+    color: #2B4661;
+    font-size: larger;
+}
+
+.BodyInfoTextHelp 
+{
+    color: #2B4661;
+    font-size: larger;
+    text-align: justify;
+    text-justify: inter-word;    
+}
+
+.BodyInfoTextJustify 
+{
+    text-align: justify;
+    text-justify: inter-word;    
+}
+
+.BodyInfoTextHover 
+{
+    color: #DE9700;
+    font-size: larger;
+}
+
+.BodyInfoBoldText 
+{
+    color: #2B4661;
+    font-weight: bold;
+}
+
+.BodyInfoBoldTextHover 
+{
+    color: #d77b0d;
+    font-weight: bold;
+    font-size: larger;
+    text-shadow: 1px 1px 2px #ffffff;    
+}
+
+
+.BodyInfoTextHeader 
+{
+    color: #2B4661;
+    font-size: larger;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 7px 0px 7px 0px;
+    margin: 0px -10px 0px -10px;
+    box-shadow: 5px 5px 3px #cccccc;
+}
+
+
+.BodyInfoSubText 
+{
+    color: #2B4661;
+    font-size:smaller;
+}
+
+.BodyInfoSubSubText 
+{
+    color: #2B4661;
+    font-size:small;
+    font-weight: normal;
+}
+
+	
+
+.BodyTable
+{
+	width: 100%;	
+	position: relative;
+	border-width:1px;
+	border-color: #aaaaaa;
+	padding: 0;
+	margin: 0;
+
+}
+
+.BodyTableHeader
+{
+     background-color: #4888e8; /* #6499e8; */
+     color: #ffffff;
+     border: 1px solid #aaaaaa;
+     text-align: left;
+}
+
+
+.BodyBox 
+{
+	border: 4px solid #F3F7FF;
+}
+
+.BodyColour
+{
+	background-color: #F3F7FF;
+}
+
+.BodyTitle 
+{
+	color: #2B4661;
+	font-weight: bold;
+	font-size: larger;
+}
+
+.BodyText
+{
+	background-color: #fafbfc; /* fafbfc F3F7FF; */
+	padding: 7px;
+	margin-top: 0px;
+	margin-bottom: 8px;
+}
+
+.BodyTextAlt
+{
+	background-color: #FFFFFF;
+	padding: 7px;
+	margin-top: 0px;
+	margin-bottom: 8px;
+}
+
+.BodyContent
+{
+	background-color: #f5f7fc; /* fafbfc   F3F7FF; */
+	margin-top: 0px;
+	margin-bottom: 2px;
+	float: none;
+	border: inherit;
+}
+
+.BodyContentAlt
+{
+	background-color: #FFFFFF;
+	margin-top: 0px;
+	margin-bottom: 2px;
+	float: none;
+	border: inherit;
+}
+
+.BodyContentHighlight
+{
+	background-color: #ffdeae;
+	margin-top: 0px;
+	margin-bottom: 2px;
+	float: none;
+	border-width: 0px;
+}
+
+.BodyContentPadding 
+{
+  	padding-left: 5px;  
+  	padding-right: 5px; 
+  	padding-top: 2px;  
+  	padding-bottom: 2px;   
+  	
+}
+
+.BodyContentPadding td
+{
+  	padding-left: 10px;  
+  	padding-right: 10px; 
+  	padding-top: 3px;  
+  	padding-bottom: 3px;   
+}
+
+
+
+.Pagination 
+{   
+  display: none;  
+}
+
+.HeaderGridView
+{
+     background-color: #4888e8; 
+     text-align: left;   
+     border-collapse: separate;
+     border-spacing: 0; 
+     border: 1px solid #aaaaaa;     
+     background-clip: padding-box;     
+}
+
+.BGV1 /* Body cell grid view */
+{
+	background-color: #f5f7fc; /* fafbfc   F3F7FF; */
+	margin-top: 0px;
+    margin-bottom: 2px;
+
+    border-collapse: separate;
+    border-spacing: 0; 
+    border: 1px solid #aaaaaa;     
+    background-clip: padding-box;     /* Fixes FF rendering of table borders bug when applied at cell level rather than row level... */
+}
+.BGV2 /* Body cell grid view ALTERNATE */
+{
+	background-color: #FFFFFF;
+	margin-top: 0px;
+	margin-bottom: 2px;
+
+    border-collapse: separate;
+    border-spacing: 0; 
+    border: 1px solid #aaaaaa;     
+    background-clip: padding-box;     
+}
+
+
+.HeaderSortedAsc
+{
+
+    background: #4f95ff url(../Images/SortedASC.gif) no-repeat 100% 10%; /* 4888e8 */
+}
+
+.HeaderSortedDesc
+{
+
+	background: #2774e8 url(../Images/SortedDESC.gif) no-repeat 100% 10%;
+}
+
+
+.FooterIm 
+{
+	border-width: 0px;
+}
+
+
+.SessionExpired 
+{
+	background-color: #d77b0d;
+	color: #ffffff;
+	font-weight: bold;
+	width: 100%;
+	position: relative;
+	padding: 5px;
+}
+
+.SessionExpiredSmall 
+{
+	background-color: #d77b0d;
+	color: #ffffff;
+	font-weight: bold;
+	width: 100%;
+	position: relative;
+	padding: 0px;
+}
+
+.MglButton 
+{
+	vertical-align: middle;
+}
+
+.IconImageHover 
+{
+	border: 5px solid #d77b0d;
+}
+
+
+.IconImage 
+{
+	border: 5px solid #3D658B;
+}
+
+.IAM 
+{
+	vertical-align: middle;
+	height: 60px;
+	position: relative;
+}
+
+
+.ValidationSummaryAsBulletedListHidden ul
+{
+    display: none;
+}
+
+
+.BigLinks 
+{
+    
+  font-size:large;
+  
+    
+}
+
+
+
+/* NEWS Items  
+----------------------------------------------------------*/
+
+.RSSNewsItemTable 
+{
+	position: relative;
+	border-width: 0px;
+	vertical-align: top;
+}
+
+.RSSNewsItemIm 
+{
+	height: 40px;
+	border: 2px solid #6D97BF;
+}
+
+
+/* Info Class           c3d694      a4b253      c5d665
+----------------------------------------------------------*/
+
+    .InfoClassSuccess 
+    { 
+        color: #1c783b;        
+        padding: 5px;
+        font-weight: bold;
+        background: url(../Images/Icon_Notification_Done.png) no-repeat 0% 0%;
+    }
+    
+    .InfoClassFailure 
+    {
+        padding: 5px;
+        color: #ed1f24;
+        font-weight: bold;
+        background: url(../Images/Icon_Notification_Error.png) no-repeat 0% 0%;
+    }
+    
+    .InfoClassWarning 
+    {
+        padding: 5px;
+        color: #d77b0d;
+        font-weight: bold;
+        background: url(../Images/Icon_Notification_Warning.png) no-repeat 0% 0%;
+    }
+    
+    /* Note - This is just for text */
+    .InfoClassHighlight 
+    { 
+        color: #2B4661;
+        font-weight: bold;
+    }
+
+    .InfoClassHighlightBig 
+    { 
+        color: #2B4661;
+        font-weight: bold;
+        font-size:larger;
+    }
+
+
+    .InfoSuccess 
+    { 
+        
+        color: #1c783b;        
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    .InfoWaiting 
+    { 
+        
+        color: #d77b0d;        
+        padding: 5px;
+        font-weight: bold;
+    }
+    
+    .InfoFailure 
+    {
+        
+        padding: 5px;
+        color: #ed1f24;
+        font-weight: bold;
+    }
+
+
+    .InfoBold
+    {
+        color: #2B4661;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+.NumFormat
+{
+    text-align: right;
+}
+
+
+/*  Very specific padding for cells */
+td.TDMargin
+{
+    padding-left:20px;
+}
+
+
+.HelpTable TD
+{
+    vertical-align: top;
+    margin:5px 5px 5px 5px;
+    border: 1px solid #cccccc;
+    padding: 3px 5px 3px 5px;
+}
+    
+   .ProgressBar 
+{
+    background-color: #2B4661;
+    color: #ffffff;
+    padding: 5px 5px 5px 5px;
+    margin: 0px 0px 0px 0px;
+}
+
+
+.SessionWarningWrapper
+{
+    width: 500px;
+    height:200px;
+    border-radius:20px 20px 20px 20px;
+    box-shadow: 4px 4px 3px #888888;
+    overflow: hidden;
+}
+
+.IconStyle
+{
+  border-width:0px; 
+  cursor: pointer;      
+}

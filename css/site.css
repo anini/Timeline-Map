@@ -54,7 +54,7 @@ rect {
   height: 18px;
   width: 18px;
   margin-bottom: -4px;
-  background:url(../playPauseSprite.png) 18px 18px no-repeat;
+  background:url(../img/playPauseSprite.png) 18px 18px no-repeat;
 }
 
 .playPause.paused{
