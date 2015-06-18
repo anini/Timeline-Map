@@ -18,10 +18,10 @@
         <script src="js/d3.js" charset="utf-8"></script>
         
         <!-- data-->
-        <script src="data/totalCasesAndDeaths.js"></script>
+        <script src="data/RefugeeIDP.js"></script>
         
         <!-- data reference-->
-        <script src="data/westafrica.js"></script>
+        <script src="data/syria.js"></script>
         <script src="data/regions.js"></script>
         <script src="data/region_cases.js"></script>
         
@@ -48,34 +48,32 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                        <p>This data visualisation present the impact of 5 years of war on the syrian population. It shows:
+                        <p>This data visualisation present the impact of 5 years of war on the syrian population. It displays:
                         <ul>
                             <li> Population extrapolation based on 2004 census <small>(source: <a href="http://www.cbssyr.sy/index-EN.htm">Syrian Central Bureau of Statistics</a>)</small></li>
-                            <li> Population Internally displaced <small>(source: <a href="http://www.humanitarianresponse.info/en/operations/syria">Office for the coordination of Humanitarian Affair - OCHA</a>)</small></li>
+                            <li> Population Internally displaced <small>(source: <a href="http://www.humanitarianresponse.info/en/operations/syria">Syria Protection Cluster - UNHCR Led</a>)</small></li>
+                            <!--(source: <a href="http://www.humanitarianresponse.info/en/operations/syria">Office for the coordination of Humanitarian Affair - OCHA</a>)</small></li> -->
                             <li> Refugee Population who left the country <small>(source: <a href="http://data.unhcr.org/syrianrefugees">United Nations High Commissionner for Refugees - UNHCR </a>)</small></li>
-                            <li> Population who died because of the war <small>(source: <a href="http://www.syrianshuhada.com/default.asp?lang=en">Syrian Shuhada</a>)</small></li>
+                           <!-- <li> Population who died because of the war <small>(source: <a href="http://www.syrianshuhada.com/default.asp?lang=en">Syrian Shuhada</a>)</small></li> -->
                         </ul>
                         </p>
                 </div>
             </div>
             <div class="row">
-                <h3>Population Size over time</h3>
+                <h3>Population Displacement over time: <div id="week" ></div></h3>
                 <div id="bar_chart" class="col-lg-12"></div>
             </div>
-            
-            <div class="row">
-                <div id="week" class="col-md-12"></div>
-            </div>
-            
+                        
             <div class="row">
                 <div class="col-lg-4">
                     <div class="row">
                         <h3>Population Pyramid</h3>
-                        <div  class="col-md-4"></div>
+                        <div id="pyramid" class="col-md-4"></div>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="row">
+                        <h3>Relative importance of displacement</h3>
                         <div id="map" class="col-md-8"></div>
                     </div>
                 </div>
