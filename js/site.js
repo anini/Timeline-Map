@@ -312,8 +312,8 @@ function generateMap(){
                      return path.centroid(d)[1];})
          .attr("dy", ".55em")
          .attr("class","maplabel")
-         .style("font-size","16px")
-         .attr("opacity",0.7)
+         .style("font-size","15px")
+         .attr("opacity",0.85)
          .text(function(d,i){
                       return d.properties.NAME_EN;
                   });
@@ -381,6 +381,10 @@ function formatDate(date){
     return date.substring(0,2) + " " + month[parseInt((date.substring(3,5))-1)];
 }
 
+function formatDateYear(date){
+    return date.substring(5,2) ;
+}
+
 function generatePyramid(){
 
      var margin = {top: 10, right: 10, bottom: 10, left: 10},
@@ -417,19 +421,19 @@ function generatePyramid(){
         .attr("dy", ".71em")
         .text(2000);
 
-    d3.csv("../data/population.csv", function(error, data) {
+    d3.csv("./data/population.csv", function(error, data) {
 
       // Convert strings to numbers.
       data.forEach(function(d) {
         d.people = +d.people;
-        d.date = +d.date;
+        d.date = +d.Date;
         d.age = +d.age;
       });
 
       // Compute the extent of the data set in age and years.
       var age1 = d3.max(data, function(d) { return d.age; }),
-          year0 = d3.min(data, function(d) { return d.date; }),
-          year1 = d3.max(data, function(d) { return d.date; }),
+          year0 = d3.min(data, function(d) { return formatDateYear(d.Date); }),
+          year1 = d3.max(data, function(d) { return formatDateYear(d.Date); }),
           year = year1;
 
       // Update the scale domains.
@@ -438,8 +442,8 @@ function generatePyramid(){
 
       // Produce a map from year and birthyear to [male, female].
       data = d3.nest()
-          .key(function(d) { return d.year; })
-          .key(function(d) { return d.year - d.age; })
+          .key(function(d) { return formatDateYear(d.Date); })
+          .key(function(d) { return formatDateYear(d.Date) - d.age; })
           .rollup(function(v) { return v.map(function(d) { return d.people; }); })
           .map(data);
 
@@ -481,27 +485,29 @@ function generatePyramid(){
           .attr("y", height + 4)
           .attr("dy", ".71em")
           .text(function(age) { return age; });
+          
+          
+      function transitionPyramid() {
+                if (!(year in data)) return;
+                title.text(year);
 
+                birthyears.transition()
+                    .duration(750)
+                    .attr("transform", "translate(" + (x(year1) - x(year)) + ",0)");
+
+                birthyear.selectAll("rect")
+                    .data(function(birthyear) { return data[year][birthyear] || [0, 0]; })
+                  .transition()
+                    .duration(750)
+                    .attr("y", y)
+                    .attr("height", function(value) { return height - y(value); });
+        };
 
     });
 
 } 
 
-function transitionPyramid() {
-        if (!(year in data)) return;
-        title.text(year);
 
-        birthyears.transition()
-            .duration(750)
-            .attr("transform", "translate(" + (x(year1) - x(year)) + ",0)");
-
-        birthyear.selectAll("rect")
-            .data(function(birthyear) { return data[year][birthyear] || [0, 0]; })
-          .transition()
-            .duration(750)
-            .attr("y", y)
-            .attr("height", function(value) { return height - y(value); });
-}
 
 
 var currentWeek=0;
