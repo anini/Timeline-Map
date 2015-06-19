@@ -38,7 +38,7 @@ function generateBarChart(id,data){
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
-    var max = d3.max(data, function(d) { return d.newCases; });
+    var max = d3.max(data, function(d) { return d.refugee; });
     
     x.domain(data.map(function(d) {return formatDate(d.Date); }));
     y.domain([0, max]);
@@ -57,25 +57,25 @@ function generateBarChart(id,data){
         .attr("class", "grid")
         .call(yGrid);       
 
-    svg.selectAll(".totalbar")
+    svg.selectAll(".refugeebar")
         .data(data)
     .enter().append("rect")
-        .attr("class", "totalbar")
+        .attr("class", "refugeebar")
         .attr("x", function(d) { return x(formatDate(d.Date)); })
         .attr("width", x.rangeBand()/2)
-        .attr("y", function(d) { return y(d.newCases); })
+        .attr("y", function(d) { return y(d.refugee); })
         .attr("height", function(d) {
-           return height - y(d.newCases);});
+           return height - y(d.refugee);});
            
-    svg.selectAll(".deathbar")
+    svg.selectAll(".idpbar")
         .data(data)
     .enter().append("rect")
-        .attr("class", "deathbar")
+        .attr("class", "idpbar")
         .attr("x", function(d) { return x(formatDate(d.Date))+x.rangeBand()/2; })
         .attr("width", x.rangeBand()/2)
-        .attr("y", function(d) { return y(d.newDeaths); })
+        .attr("y", function(d) { return y(d.idp); })
         .attr("height", function(d) {
-           return height - y(d.newDeaths);});
+           return height - y(d.idp);});
           
     svg.selectAll(".current")
         .data(data)
@@ -98,29 +98,29 @@ function generateBarChart(id,data){
     var g = svg.append("g");
         
     g.append("rect")
-        .attr("x", width+10)
+        .attr("x", width-70)
         .attr("y", 10)
         .attr("width", 10)
         .attr("height", 10)
         .attr("fill","steelblue");
 
     g.append("rect")
-        .attr("x", width+10)
+        .attr("x", width-70)
         .attr("y", 30)
         .attr("width", 10)
         .attr("height", 10)
         .attr("fill","red");
 
     g.append("text")
-        .attr("x",width+25)
+        .attr("x",width-55)
         .attr("y",18)
-        .text("New Cases")
+        .text("Refugees")
         .attr("font-size","10px");
 
     g.append("text")
-        .attr("x",width+25)
+        .attr("x",width-55)
         .attr("y",38)
-        .text("Deaths")
+        .text("Internally Displaced Persons")
         .attr("font-size","10px");
 
 
@@ -132,8 +132,8 @@ function generateMap(){
     height = 425;
    
     var projection = d3.geo.mercator()
-        .center([124.5,12])
-        .scale(1500);
+        .center([40,34.4])
+        .scale(3900);
 
     var svg = d3.select('#map').append("svg")
         .attr("width", width)
@@ -153,7 +153,7 @@ function generateMap(){
         .attr("fill",'#ffffff')
         .attr("opacity",1)
         .attr("id",function(d){
-            return d.properties.PCODE_REF;
+            return d.properties.PCODE;
         })
         .attr("class","region");
 
@@ -161,7 +161,7 @@ function generateMap(){
     var g = svg.append("g");
     
     g.selectAll("path")
-        .data(westafrica.features)
+        .data(syria.features)
         .enter()
         .append("path")
         .attr("d", path)
@@ -197,10 +197,20 @@ function generateMap(){
                 })
         .attr("opacity",0.7);        
     */
-    var g = svg.append("g");
     
+    
+    var g = svg.append("g");
+    /*
+    g.append("text")
+        .attr("x",0)
+        .attr("y",30)
+        .text("Relative importance of displacement")
+        .attr("font-size","26px")
+        .attr("font-weight","300")
+        .attr("line-height","1.1");
+    */
     g.append("rect")
-        .attr("x", 0)
+        .attr("x", 1)
         .attr("y", 220)
         .attr("width", 10)
         .attr("height", 10)
@@ -211,7 +221,7 @@ function generateMap(){
     g.append("text")
         .attr("x",15)
         .attr("y",228)
-        .text("No cases")
+        .text("No reported displacement")
         .attr("font-size","10px");    
         
     g.append("rect")
@@ -224,7 +234,7 @@ function generateMap(){
     g.append("text")
         .attr("x",15)
         .attr("y",248)
-        .text("1 to 9 cases in the last 3 weeks")
+        .text(" % of population who left")
         .attr("font-size","10px");
 
     g.append("rect")
@@ -237,7 +247,7 @@ function generateMap(){
     g.append("text")
         .attr("x",15)
         .attr("y",268)
-        .text("10 to 99 cases in the last 3 weeks")
+        .text("% of population who left")
         .attr("font-size","10px");
 
     g.append("rect")
@@ -250,7 +260,7 @@ function generateMap(){
     g.append("text")
         .attr("x",15)
         .attr("y",288)
-        .text("100 to 199 cases in the last 3 weeks")
+        .text("% of population who left")
         .attr("font-size","10px");
 
     g.append("rect")
@@ -263,7 +273,7 @@ function generateMap(){
     g.append("text")
         .attr("x",15)
         .attr("y",308)
-        .text("200 or more cases in the last 3 weeks")
+        .text("% of population who left")
         .attr("font-size","10px");
     /*
     g.append("circle")
@@ -293,7 +303,7 @@ function generateMap(){
     var mapLabels = svg.append("g");    
 
     mapLabels.selectAll('text')
-      .data(westafrica.features)
+      .data(syria.features)
          .enter()
          .append("text")
          .attr("x", function(d,i){
@@ -302,10 +312,10 @@ function generateMap(){
                      return path.centroid(d)[1];})
          .attr("dy", ".55em")
          .attr("class","maplabel")
-         .style("font-size","20px")
-         .attr("opacity",0.4)
+         .style("font-size","15px")
+         .attr("opacity",0.85)
          .text(function(d,i){
-                      return d.properties.NAME;
+                      return d.properties.NAME_EN;
                   });
 
 }
@@ -338,21 +348,6 @@ function transitionMap(){
             d3.select("#"+element.Region.replace(/\s/g, ''))
                         .attr("fill",convertCasesToColor(element.Cases));
             });
-    /*        
-    var data = medical_centres[currentWeek].medical_centres;
-    data.forEach(function(element){
-               d3.select("#"+element.id.split(' ').join('_'))
-                        .attr("opacity",convertMedicalCentresToOpacity(element.open))
-                        .attr('cx',function(d){
-                                    var point = projection([ d.geometry.coordinates[0], d.geometry.coordinates[1] ]);
-                                    return point[0];
-                                })
-                        .attr('cy',function(d){
-                                    var point = projection([ d.geometry.coordinates[0], d.geometry.coordinates[1] ]);
-                                    return point[1];
-                                });  
-            });             
-    */
 }
 
 function convertCasesToColor(cases){
@@ -386,13 +381,142 @@ function formatDate(date){
     return date.substring(0,2) + " " + month[parseInt((date.substring(3,5))-1)];
 }
 
+function formatDateYear(date){
+    return date.substring(5,2) ;
+}
+
+function generatePyramid(){
+
+     var margin = {top: 10, right: 10, bottom: 10, left: 10},
+        width = $('#pyramid').width() - margin.left - margin.right,
+        height = 425,
+        barWidth = Math.floor(width / 19) - 1;
+    
+    var x = d3.scale.linear()
+        .range([barWidth / 2, width - barWidth / 2]);
+
+    var y = d3.scale.linear()
+        .range([height, 0]);
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("right")
+        .tickSize(-width)
+        .tickFormat(function(d) { return Math.round(d / 1e6) + "M"; });
+
+    // An SVG element with a bottom-right origin.
+    var svg = d3.select("body").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // A sliding container to hold the bars by birthyear.
+    var birthyears = svg.append("g")
+        .attr("class", "birthyears");
+
+    // A label for the current year.
+    var title = svg.append("text")
+        .attr("class", "title")
+        .attr("dy", ".71em")
+        .text(2000);
+
+    d3.csv("./data/population.csv", function(error, data) {
+
+      // Convert strings to numbers.
+      data.forEach(function(d) {
+        d.people = +d.people;
+        d.date = +d.Date;
+        d.age = +d.age;
+      });
+
+      // Compute the extent of the data set in age and years.
+      var age1 = d3.max(data, function(d) { return d.age; }),
+          year0 = d3.min(data, function(d) { return formatDateYear(d.Date); }),
+          year1 = d3.max(data, function(d) { return formatDateYear(d.Date); }),
+          year = year1;
+
+      // Update the scale domains.
+      x.domain([year1 - age1, year1]);
+      y.domain([0, d3.max(data, function(d) { return d.people; })]);
+
+      // Produce a map from year and birthyear to [male, female].
+      data = d3.nest()
+          .key(function(d) { return formatDateYear(d.Date); })
+          .key(function(d) { return formatDateYear(d.Date) - d.age; })
+          .rollup(function(v) { return v.map(function(d) { return d.people; }); })
+          .map(data);
+
+      // Add an axis to show the population values.
+      svg.append("g")
+          .attr("class", "y axis")
+          .attr("transform", "translate(" + width + ",0)")
+          .call(yAxis)
+        .selectAll("g")
+        .filter(function(value) { return !value; })
+          .classed("zero", true);
+
+      // Add labeled rects for each birthyear (so that no enter or exit is required).
+      var birthyear = birthyears.selectAll(".birthyear")
+          .data(d3.range(year0 - age1, year1 + 1, 5))
+        .enter().append("g")
+          .attr("class", "birthyear")
+          .attr("transform", function(birthyear) { return "translate(" + x(birthyear) + ",0)"; });
+
+      birthyear.selectAll("rect")
+          .data(function(birthyear) { return data[year][birthyear] || [0, 0]; })
+        .enter().append("rect")
+          .attr("x", -barWidth / 2)
+          .attr("width", barWidth)
+          .attr("y", y)
+          .attr("height", function(value) { return height - y(value); });
+
+      // Add labels to show birthyear.
+      birthyear.append("text")
+          .attr("y", height - 4)
+          .text(function(birthyear) { return birthyear; });
+
+      // Add labels to show age (separate; not animated).
+      svg.selectAll(".age")
+          .data(d3.range(0, age1 + 1, 5))
+        .enter().append("text")
+          .attr("class", "age")
+          .attr("x", function(age) { return x(year - age); })
+          .attr("y", height + 4)
+          .attr("dy", ".71em")
+          .text(function(age) { return age; });
+          
+          
+      function transitionPyramid() {
+                if (!(year in data)) return;
+                title.text(year);
+
+                birthyears.transition()
+                    .duration(750)
+                    .attr("transform", "translate(" + (x(year1) - x(year)) + ",0)");
+
+                birthyear.selectAll("rect")
+                    .data(function(birthyear) { return data[year][birthyear] || [0, 0]; })
+                  .transition()
+                    .duration(750)
+                    .attr("y", y)
+                    .attr("height", function(value) { return height - y(value); });
+        };
+
+    });
+
+} 
+
+
 
 
 var currentWeek=0;
-generateBarChart('#bar_chart',totalCasesAndDeaths);
+generateBarChart('#bar_chart',totalRefugeeIDP);
 d3.select("#barSelect"+currentWeek).attr("opacity",0.15);
 generateMap();
 transitionMap();
+generatePyramid();
+transitionPyramid();
 
 $(document).keydown(function(e) {
     switch(e.which) {
@@ -402,16 +526,18 @@ $(document).keydown(function(e) {
             if(currentWeek<0){currentWeek=0;}
             d3.select("#barSelect"+currentWeek).attr("opacity",0.15);
             transitionMap();
+            transitionPyramid();
             break;
 
         case 39:
             d3.select("#barSelect"+currentWeek).attr("opacity",0);    
             currentWeek=currentWeek+1;
-            if(currentWeek>totalCasesAndDeaths.length-1){
-                currentWeek=totalCasesAndDeaths.length-1;
+            if(currentWeek>totalRefugeeIDP.length-1){
+                currentWeek=totalRefugeeIDP.length-1;
             }
             d3.select("#barSelect"+currentWeek).attr("opacity",0.15); 
             transitionMap();
+            transitionPyramid();
             break;
 
         default: return; // exit this handler for other keys
@@ -419,15 +545,28 @@ $(document).keydown(function(e) {
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
 
+      // Allow the arrow keys to change the displayed year.
+      /*
+      window.focus();
+      d3.select(window).on("keydown", function() {
+        switch (d3.event.keyCode) {
+          case 37: year = Math.max(year0, year - 10); break;
+          case 39: year = Math.min(year1, year + 10); break;
+        }
+        update();
+      });
+      */
+
 
 function autoAdvance(){
     d3.select("#barSelect"+currentWeek).attr("opacity",0);
     currentWeek=currentWeek+1;  
-    if(currentWeek>totalCasesAndDeaths.length-1){
+    if(currentWeek>totalRefugeeIDP.length-1){
         currentWeek=0;
      }
     d3.select("#barSelect"+currentWeek).attr("opacity",0.15); 
     transitionMap();
+    transitionPyramid();
 }
 
 var playTimer;
